@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ubuntu配置qt4+opencv环境 | Hugo&#39;s blog</title>
+  <title>文化的传承 | Hugo&#39;s blog</title>
   <meta name="author" content="Hugo Wen">
   
   <meta name="description" content="热爱开源，崇尚自由">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Ubuntu配置qt4+opencv环境"/>
+  <meta property="og:title" content="文化的传承"/>
   <meta property="og:site_name" content="Hugo&#39;s blog"/>
 
   
@@ -54,52 +54,17 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-05-01T08:00:04.000Z"><a href="/2014/05/01/ubuntu配置qt4+opencv环境/">5月 1 2014</a></time>
+        <time datetime="2014-05-03T10:29:45.000Z"><a href="/2014/05/03/文化的传承/">5月 3 2014</a></time>
       
       
   
-    <h1 class="title">Ubuntu配置qt4+opencv环境</h1>
+    <h1 class="title">文化的传承</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="配置系统环境"><strong>配置系统环境</strong></h2>
-<p><em>安装g++：</em></p>
-<pre><code><span class="built_in">sudo</span> apt-get install g++
-<span class="built_in">sudo</span> apt-get install g++ automake
-</code></pre><p><a id="more"></a><em>更新和升级系统：</em></p>
-<pre><code><span class="built_in">sudo</span> apt-get update
-<span class="built_in">sudo</span> apt-get upgrade
-</code></pre><h2 id="配置qt4环境"><strong>配置qt4环境</strong></h2>
-<p><em>安装qt4相关：</em></p>
-<pre><code>sudo apt<span class="attribute">-get</span> install libqt4<span class="attribute">-dev</span> qt4<span class="attribute">-dev</span><span class="attribute">-tools</span> qt4<span class="attribute">-designer</span> qt4<span class="attribute">-doc</span> qt4<span class="attribute">-demos</span>
-</code></pre><p><em>安装qt4 creator：</em></p>
-<p>下载地址： <a href="http://qt-project.org/downloads/" target="_blank">http://qt-project.org/downloads/</a><br>下载后是run文件，修改权限并运行，然后图形化界面安装</p>
-<pre><code>sudo chmod <span class="number">777</span> qt<span class="attribute">-creator</span><span class="attribute">-opensource</span><span class="attribute">-linux</span><span class="attribute">-x86_64</span><span class="subst">-</span><span class="number">3.0</span><span class="number">.1</span><span class="built_in">.</span>run
-</code></pre><h2 id="配置opencv环境"><strong>配置opencv环境</strong></h2>
-<p><em>安装必要的依赖环境：</em></p>
-<pre><code>sudo apt<span class="attribute">-get</span> install build<span class="attribute">-essential</span> libgtk2<span class="number">.0</span><span class="attribute">-dev</span> libjpeg<span class="attribute">-dev</span> libtiff4<span class="attribute">-dev</span> libjasper<span class="attribute">-dev</span> libopenexr<span class="attribute">-dev</span> cmake python<span class="attribute">-dev</span> python<span class="attribute">-numpy</span> python<span class="attribute">-tk</span> libtbb<span class="attribute">-dev</span> libeigen2<span class="attribute">-dev</span> yasm libfaac<span class="attribute">-dev</span> libopencore<span class="attribute">-amrnb</span><span class="attribute">-dev</span> libopencore<span class="attribute">-amrwb</span><span class="attribute">-dev</span> libtheora<span class="attribute">-dev</span> libvorbis<span class="attribute">-dev</span> libxvidcore<span class="attribute">-dev</span> libx264<span class="attribute">-dev</span> libqt4<span class="attribute">-dev</span> libqt4<span class="attribute">-opengl</span><span class="attribute">-dev</span> sphinx<span class="attribute">-common</span> texlive<span class="attribute">-latex</span><span class="attribute">-extra</span> libv4l<span class="attribute">-dev</span> libdc1394<span class="subst">-</span><span class="number">22</span><span class="attribute">-dev</span> libavcodec<span class="attribute">-dev</span> libavformat<span class="attribute">-dev</span> libswscale<span class="attribute">-dev</span>
-</code></pre><p><em>下载、编译、运行opencv2.4.1（不建议2.4.8，我配置2.4.8后出现问题）</em></p>
-<pre><code>wget http:<span class="comment">//downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.1/OpenCV-2.4.1.tar.bz2</span>
-tar jxvf OpenCV<span class="subst">-</span><span class="number">2.4</span><span class="number">.1</span><span class="built_in">.</span>tar<span class="built_in">.</span>bz2
-cd OpenCV<span class="subst">-</span><span class="number">2.4</span><span class="number">.1</span>
-mkdir build
-cd build
-cmake <span class="attribute">-D</span> WITH_TBB<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> BUILD_NEW_PYTHON_SUPPORT<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> WITH_V4L<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> INSTALL_C_EXAMPLES<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> INSTALL_PYTHON_EXAMPLES<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> BUILD_EXAMPLES<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> WITH_QT<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> WITH_OPENGL<span class="subst">=</span><span class="keyword">ON</span> <span class="built_in">..</span>
-make
-sudo make install
-</code></pre><p><em>编辑系统环境变量：</em></p>
-<pre><code>sudo vim /etc/<span class="keyword">ld</span><span class="preprocessor">.so</span><span class="preprocessor">.conf</span><span class="preprocessor">.d</span>/opencv<span class="preprocessor">.conf</span>
-</code></pre><p><em>添加opencv库所在路径：</em></p>
-<pre><code>/usr/local/lib
-<span class="built_in">sudo</span> ldconfig
-<span class="built_in">sudo</span> vim /etc/bash.bashrc
-</code></pre><p><em>在末尾添加：</em></p>
-<pre><code><span class="constant">PKG_CONFIG_PATH</span>=<span class="variable">$PKG_CONFIG_PATH</span><span class="symbol">:/usr/local/lib/pkgconfig</span>  
-export <span class="constant">PKG_CONFIG_PATH</span> 
-</code></pre><p>至此，配置成功。</p>
-
+        
       
     </div>
     <footer>
@@ -107,15 +72,10 @@ export <span class="constant">PKG_CONFIG_PATH</span>
         
   
   <div class="categories">
-    <a href="/categories/linux/">linux</a>, <a href="/categories/linux/qt/">qt</a>, <a href="/categories/linux/qt/opencv/">opencv</a>
+    <a href="/categories/随笔/">随笔</a>
   </div>
 
         
-  
-  <div class="tags">
-    <a href="/tags/qt4/">qt4</a>, <a href="/tags/opencv/">opencv</a>, <a href="/tags/ubuntu/">ubuntu</a>
-  </div>
-
         <!-- 
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -158,12 +118,12 @@ export <span class="constant">PKG_CONFIG_PATH</span>
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://hugowen.com/2014/05/01/ubuntu配置qt4+opencv环境/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://hugowen.com/2014/05/03/文化的传承/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
    -->
   <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/2014/05/01/ubuntu配置qt4+opencv环境/" data-title="Ubuntu配置qt4+opencv环境" data-url="http://hugowen.com/2014/05/01/ubuntu配置qt4+opencv环境/"></div>
-  <!-- <div class="ds-thread" data-thread-key="/2014/05/01/ubuntu配置qt4+opencv环境/" data-title="Ubuntu配置qt4+opencv环境" data-url="hugowen.com"></div> -->
+	<div class="ds-thread" data-thread-key="/2014/05/03/文化的传承/" data-title="文化的传承" data-url="http://hugowen.com/2014/05/03/文化的传承/"></div>
+  <!-- <div class="ds-thread" data-thread-key="/2014/05/03/文化的传承/" data-title="文化的传承" data-url="hugowen.com"></div> -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
