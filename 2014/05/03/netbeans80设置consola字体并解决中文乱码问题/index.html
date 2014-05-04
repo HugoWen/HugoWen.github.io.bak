@@ -65,7 +65,7 @@
     <div class="entry">
       
         <p>在Netbeans8.0上开发php，设置字体为Consola后，发现中文显示是乱码的，经过修改jre的配置文件成功解决了这个问题。</p>
-<p>进入jdk安装目录下 <strong>/jre/lib</strong> 文件夹，找到 <strong>fontconfig.properties.src</strong> ，拷贝为 <strong>fontconfig.properties</strong> ，修改此文件。</p>
+<p>进入jdk安装目录下 <strong>/jre/lib</strong> 文件夹，找到 <strong>fontconfig.properties.src</strong> ，拷贝为 <strong>fontconfig.properties</strong> ，修改此文件。<a id="more"></a></p>
 <p><em>找到：</em></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -80,19 +80,32 @@ monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor
 </pre></td></tr></table></figure>
 
 <p><em>修改为：</em></p>
-<pre><code>sequence<span class="preprocessor">.monospaced</span><span class="preprocessor">.GBK</span>=alphabetic,chinese-ms936,dingbats,symbol,chinese-ms936-extb
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>sequence<span class="preprocessor">.monospaced</span><span class="preprocessor">.GBK</span>=alphabetic,chinese-ms936,dingbats,symbol,chinese-ms936-extb
 monospaced<span class="preprocessor">.plain</span><span class="preprocessor">.alphabetic</span>=Consolas
 monospaced<span class="preprocessor">.bold</span><span class="preprocessor">.alphabetic</span>=Consolas Bold
 monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Consolas Italic
 monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Consolas Bold Italic
-</code></pre><p><em>在末尾添加consola字体定义：</em></p>
-<pre><code>filename<span class="preprocessor">.Consolas</span>=CONSOLA<span class="preprocessor">.TTF</span>
+</pre></td></tr></table></figure>
+
+<p><em>在末尾添加consola字体定义：</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>filename<span class="preprocessor">.Consolas</span>=CONSOLA<span class="preprocessor">.TTF</span>
 filename<span class="preprocessor">.Consolas</span>_Bold=CONSOLAB<span class="preprocessor">.TTF</span>
 filename<span class="preprocessor">.Consolas</span>_Italic=CONSOLAI<span class="preprocessor">.TTF</span>
 filename<span class="preprocessor">.Consolas</span>_Bold_Italic=CONSOLAZ<span class="preprocessor">.TTF</span>
-</code></pre><p>在Netbeans中进行配置</p>
-<p>Netbeans-&gt;工具-&gt;选项-&gt;字体和颜色    字体设置为 <strong>Monospaced</strong> 。</p>
-<p>设置成功。其他字体的设置将Consola设为其他字体即可。</p>
+</pre></td></tr></table></figure>
+
+<p>在Netbeans中进行配置</p>
+<p><em>Netbeans-&gt;工具-&gt;选项-&gt;字体和颜色</em><br>字体设置为 <strong>Monospaced</strong> 。</p>
+<p>设置成功。其他字体的设置将Consola改为其他字体即可。</p>
 
       
     </div>
