@@ -68,19 +68,20 @@
 <p>进入jdk安装目录下 <strong>/jre/lib</strong> 文件夹，找到 <strong>fontconfig.properties.src</strong> ，拷贝为 <strong>fontconfig.properties</strong> ，修改此文件。</p>
 <p><em>找到：</em></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>sequence<span class="built_in">.</span>monospaced<span class="built_in">.</span>GBK<span class="subst">=</span>chinese<span class="attribute">-ms936</span>,alphabetic,dingbats,symbol,chinese<span class="attribute">-ms936</span><span class="attribute">-extb</span>
-</pre></td></tr></table></figure>
-
-<pre><code>monospaced<span class="preprocessor">.plain</span><span class="preprocessor">.alphabetic</span>=Courier New
+2
+3
+4
+5
+</pre></td><td class="code"><pre>sequence<span class="preprocessor">.monospaced</span><span class="preprocessor">.GBK</span>=chinese-ms936,alphabetic,dingbats,symbol,chinese-ms936-extb
+monospaced<span class="preprocessor">.plain</span><span class="preprocessor">.alphabetic</span>=Courier New
 monospaced<span class="preprocessor">.bold</span><span class="preprocessor">.alphabetic</span>=Courier New Bold
 monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Courier New Italic
 monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Courier New Bold Italic
-</code></pre><p><em>修改为：</em></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>sequence<span class="built_in">.</span>monospaced<span class="built_in">.</span>GBK<span class="subst">=</span>alphabetic,chinese<span class="attribute">-ms936</span>,dingbats,symbol,chinese<span class="attribute">-ms936</span><span class="attribute">-extb</span>
 </pre></td></tr></table></figure>
 
-<pre><code>monospaced<span class="preprocessor">.plain</span><span class="preprocessor">.alphabetic</span>=Consolas
+<p><em>修改为：</em></p>
+<pre><code>sequence<span class="preprocessor">.monospaced</span><span class="preprocessor">.GBK</span>=alphabetic,chinese-ms936,dingbats,symbol,chinese-ms936-extb
+monospaced<span class="preprocessor">.plain</span><span class="preprocessor">.alphabetic</span>=Consolas
 monospaced<span class="preprocessor">.bold</span><span class="preprocessor">.alphabetic</span>=Consolas Bold
 monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Consolas Italic
 monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Consolas Bold Italic
