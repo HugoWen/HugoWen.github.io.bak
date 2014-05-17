@@ -75,19 +75,15 @@
 <p>在这里，图片链接写入本地路径，就是在这里出现了一些小问题。<br>最开始我写的是：<br><del>../img/2.jpg</del></p>
 <p>但是在上传到博客中却发现没法打开，发现在博客中的图片地址写成了：  </p>
 <blockquote>
-<p>hugowen.com/2014/05/03/img/2.jpg</p>
-</blockquote>
-<p>又回头研究了一下hexo的文件结构，发现本地更新的文章和图片都会上传到hexo根目录的<strong>public</strong>文件夹下，点进去这个文件夹，就会发现，文章都是分别以 <em>/年/月/日/文章名</em> 这样的文件夹保存的，而图片则直接保存在public文件夹的根目录下的 <em>/img</em> 文件夹中，那么就明了了，在写本地路径的时候，相对路径应该退回到该文件夹下才可以成功链接到图片：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>![<span class="link_label">使用本地图片</span>](<span class="link_url">../../../../img/2.jpg</span>)
-</pre></td></tr></table></figure>
-
-<p>再上传之后，发现成功地显示图片了。<br>这样就不需要使用别人的图床了，很赞有没有！</p>
-
+<p>hugowen.com/2014/05/03/img/2.jpg<br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/05/17/hexo使用markdown插入本地图片/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
@@ -115,15 +111,13 @@
     </header>
     <div class="entry">
       
-        <p>要准备开始写毕业论文，尝个鲜下载了个Office2013，总体体验不错，但刚开始出现了小问题，就是无法切换输入法输入中文。<br>想到可能是我删除了系统提供的输入法选项只保留了自己的google输入法所致，于是进入<strong>输入法管理</strong>界面，添加了一个微软拼音输入法，再切换到Office，现在可以切换输入法并输入中文了。
+        <p>要准备开始写毕业论文，尝个鲜下载了个Office2013，总体体验不错，但刚开始出现了小问题，就是无法切换输入法输入中文。<br>想到可能是我删除了系统提供的输入法选项只保留了自己的google输入法所致，于是进入<strong>输入法管理</strong>界面，添加了一个微软拼音输入法，再切换到Office，现在可以切换输入法并输入中文了。</p>
+<p><img src="http://ww4.sinaimg.cn/large/a15ae2e5jw1eg3ubrg9eoj20k10cp41b.jpg" alt=""></p>
+
       
     </div>
     <footer>
       
-        
-          <div class="alignleft">
-            <a href="/2014/05/05/office2013-无法输入中文/#more" class="more-link">阅读全文</a>
-          </div>
         
         
       
@@ -151,7 +145,11 @@
     </header>
     <div class="entry">
       
-        <p>在Excel表格中处理csv格式通讯录，往往会遇到一个问题，就是电话号码超过一定位数后就会转换成科学计数法，这样再进行其他导出的时候就会无法正确显示，要么丢失精度，要么直接显示成科学计数法的形式。
+        <p>在Excel表格中处理csv格式通讯录，往往会遇到一个问题，就是电话号码超过一定位数后就会转换成科学计数法，这样再进行其他导出的时候就会无法正确显示，要么丢失精度，要么直接显示成科学计数法的形式。</p>
+<p>摸索半天，找到了一个完美的解决办法。选中需要转换的column，点击<em>数据-&gt;分列</em>，选择分隔符号，不选中任何符号，最后<strong>列数据类型</strong>选择文本。</p>
+<p><img src="http://ww3.sinaimg.cn/large/a15ae2e5gw1eg3ih9ffyuj20l702raak.jpg" alt="第一步"></p>
+<p><img src="http://ww1.sinaimg.cn/large/a15ae2e5gw1eg3ik6bu7aj20a2022t8v.jpg" alt="第二步"></p>
+<p><img src="http://ww1.sinaimg.cn/large/a15ae2e5gw1eg3iljxoa3j20dz01t0ss.jpg" alt="第三步"><br>
       
     </div>
     <footer>
@@ -188,7 +186,21 @@
     <div class="entry">
       
         <p>在Netbeans8.0上开发php，设置字体为Consola后，发现中文显示是乱码的，经过修改jre的配置文件成功解决了这个问题。</p>
-<p>进入jdk安装目录下 <strong>/jre/lib</strong> 文件夹，找到 <strong>fontconfig.properties.src</strong> ，拷贝为 <strong>fontconfig.properties</strong> ，修改此文件。
+<p>进入jdk安装目录下 <strong>/jre/lib</strong> 文件夹，找到 <strong>fontconfig.properties.src</strong> ，拷贝为 <strong>fontconfig.properties</strong> ，修改此文件。</p>
+<p><em>找到：</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>sequence<span class="preprocessor">.monospaced</span><span class="preprocessor">.GBK</span>=chinese-ms936,alphabetic,dingbats,symbol,chinese-ms936-extb
+monospaced<span class="preprocessor">.plain</span><span class="preprocessor">.alphabetic</span>=Courier New
+monospaced<span class="preprocessor">.bold</span><span class="preprocessor">.alphabetic</span>=Courier New Bold
+monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Courier New Italic
+monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Courier New Bold Italic
+</pre></td></tr></table></figure>
+
+<p><em>修改为：</em><br>
       
     </div>
     <footer>
@@ -224,11 +236,7 @@
     </header>
     <div class="entry">
       
-        <p><img src="../../../../img/2.jpg" alt="测试"></p>
-<p><img src="http://ww3.sinaimg.cn/large/a15ae2e5gw1eg3ih9ffyuj20l702raak.jpg" alt=""></p>
-<p><img src="../../../../2.jpg" alt="测试2"></p>
-<p><img src="http://ww2.sinaimg.cn/large/a15ae2e5jw1egh2reedrkj20bg08cdfx.jpg" alt=""></p>
-
+        
       
     </div>
     <footer>
