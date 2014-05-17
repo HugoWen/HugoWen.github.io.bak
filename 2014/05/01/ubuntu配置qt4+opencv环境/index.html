@@ -66,22 +66,44 @@
       
         <h2 id="配置系统环境"><strong>配置系统环境</strong></h2>
 <p><em>安装g++：</em></p>
-<pre><code><span class="built_in">sudo</span> apt-get install g++
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install g++
 <span class="built_in">sudo</span> apt-get install g++ automake
-</code></pre><p><a id="more"></a><em>更新和升级系统：</em></p>
-<pre><code><span class="built_in">sudo</span> apt-get update
+</pre></td></tr></table></figure>
+
+<p><a id="more"></a><br><em>更新和升级系统：</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get update
 <span class="built_in">sudo</span> apt-get upgrade
-</code></pre><h2 id="配置qt4环境"><strong>配置qt4环境</strong></h2>
+</pre></td></tr></table></figure>
+
+<h2 id="配置qt4环境"><strong>配置qt4环境</strong></h2>
 <p><em>安装qt4相关：</em></p>
-<pre><code>sudo apt<span class="attribute">-get</span> install libqt4<span class="attribute">-dev</span> qt4<span class="attribute">-dev</span><span class="attribute">-tools</span> qt4<span class="attribute">-designer</span> qt4<span class="attribute">-doc</span> qt4<span class="attribute">-demos</span>
-</code></pre><p><em>安装qt4 creator：</em></p>
+<p><code>sudo apt-get install libqt4-dev qt4-dev-tools qt4-designer qt4-doc qt4-demos</code></p>
+<p><em>安装qt4 creator：</em></p>
 <p>下载地址： <a href="http://qt-project.org/downloads/" target="_blank">http://qt-project.org/downloads/</a><br>下载后是run文件，修改权限并运行，然后图形化界面安装</p>
-<pre><code>sudo chmod <span class="number">777</span> qt<span class="attribute">-creator</span><span class="attribute">-opensource</span><span class="attribute">-linux</span><span class="attribute">-x86_64</span><span class="subst">-</span><span class="number">3.0</span><span class="number">.1</span><span class="built_in">.</span>run
-</code></pre><h2 id="配置opencv环境"><strong>配置opencv环境</strong></h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>sudo chmod <span class="number">777</span> qt<span class="attribute">-creator</span><span class="attribute">-opensource</span><span class="attribute">-linux</span><span class="attribute">-x86_64</span><span class="subst">-</span><span class="number">3.0</span><span class="number">.1</span><span class="built_in">.</span>run
+</pre></td></tr></table></figure>
+
+<h2 id="配置opencv环境"><strong>配置opencv环境</strong></h2>
 <p><em>安装必要的依赖环境：</em></p>
-<pre><code>sudo apt<span class="attribute">-get</span> install build<span class="attribute">-essential</span> libgtk2<span class="number">.0</span><span class="attribute">-dev</span> libjpeg<span class="attribute">-dev</span> libtiff4<span class="attribute">-dev</span> libjasper<span class="attribute">-dev</span> libopenexr<span class="attribute">-dev</span> cmake python<span class="attribute">-dev</span> python<span class="attribute">-numpy</span> python<span class="attribute">-tk</span> libtbb<span class="attribute">-dev</span> libeigen2<span class="attribute">-dev</span> yasm libfaac<span class="attribute">-dev</span> libopencore<span class="attribute">-amrnb</span><span class="attribute">-dev</span> libopencore<span class="attribute">-amrwb</span><span class="attribute">-dev</span> libtheora<span class="attribute">-dev</span> libvorbis<span class="attribute">-dev</span> libxvidcore<span class="attribute">-dev</span> libx264<span class="attribute">-dev</span> libqt4<span class="attribute">-dev</span> libqt4<span class="attribute">-opengl</span><span class="attribute">-dev</span> sphinx<span class="attribute">-common</span> texlive<span class="attribute">-latex</span><span class="attribute">-extra</span> libv4l<span class="attribute">-dev</span> libdc1394<span class="subst">-</span><span class="number">22</span><span class="attribute">-dev</span> libavcodec<span class="attribute">-dev</span> libavformat<span class="attribute">-dev</span> libswscale<span class="attribute">-dev</span>
-</code></pre><p><em>下载、编译、运行opencv2.4.1（不建议2.4.8，我配置2.4.8后出现问题）</em></p>
-<pre><code>wget http:<span class="comment">//downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.1/OpenCV-2.4.1.tar.bz2</span>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>sudo apt<span class="attribute">-get</span> install build<span class="attribute">-essential</span> libgtk2<span class="number">.0</span><span class="attribute">-dev</span> libjpeg<span class="attribute">-dev</span> libtiff4<span class="attribute">-dev</span> libjasper<span class="attribute">-dev</span> libopenexr<span class="attribute">-dev</span> cmake python<span class="attribute">-dev</span> python<span class="attribute">-numpy</span> python<span class="attribute">-tk</span> libtbb<span class="attribute">-dev</span> libeigen2<span class="attribute">-dev</span> yasm libfaac<span class="attribute">-dev</span> libopencore<span class="attribute">-amrnb</span><span class="attribute">-dev</span> libopencore<span class="attribute">-amrwb</span><span class="attribute">-dev</span> libtheora<span class="attribute">-dev</span> libvorbis<span class="attribute">-dev</span> libxvidcore<span class="attribute">-dev</span> libx264<span class="attribute">-dev</span> libqt4<span class="attribute">-dev</span> libqt4<span class="attribute">-opengl</span><span class="attribute">-dev</span> sphinx<span class="attribute">-common</span> texlive<span class="attribute">-latex</span><span class="attribute">-extra</span> libv4l<span class="attribute">-dev</span> libdc1394<span class="subst">-</span><span class="number">22</span><span class="attribute">-dev</span> libavcodec<span class="attribute">-dev</span> libavformat<span class="attribute">-dev</span> libswscale<span class="attribute">-dev</span>
+</pre></td></tr></table></figure>
+
+<p><em>下载、编译、运行opencv2.4.1（不建议2.4.8，我配置2.4.8后出现问题）</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>wget http:<span class="comment">//downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.1/OpenCV-2.4.1.tar.bz2</span>
 tar jxvf OpenCV<span class="subst">-</span><span class="number">2.4</span><span class="number">.1</span><span class="built_in">.</span>tar<span class="built_in">.</span>bz2
 cd OpenCV<span class="subst">-</span><span class="number">2.4</span><span class="number">.1</span>
 mkdir build
@@ -89,16 +111,27 @@ cd build
 cmake <span class="attribute">-D</span> WITH_TBB<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> BUILD_NEW_PYTHON_SUPPORT<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> WITH_V4L<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> INSTALL_C_EXAMPLES<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> INSTALL_PYTHON_EXAMPLES<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> BUILD_EXAMPLES<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> WITH_QT<span class="subst">=</span><span class="keyword">ON</span> <span class="attribute">-D</span> WITH_OPENGL<span class="subst">=</span><span class="keyword">ON</span> <span class="built_in">..</span>
 make
 sudo make install
-</code></pre><p><em>编辑系统环境变量：</em></p>
-<pre><code>sudo vim /etc/<span class="keyword">ld</span><span class="preprocessor">.so</span><span class="preprocessor">.conf</span><span class="preprocessor">.d</span>/opencv<span class="preprocessor">.conf</span>
-</code></pre><p><em>添加opencv库所在路径：</em></p>
-<pre><code>/usr/local/lib
+</pre></td></tr></table></figure>
+
+<p><em>编辑系统环境变量：</em></p>
+<p><code>sudo vim /etc/ld.so.conf.d/opencv.conf</code></p>
+<p><em>添加opencv库所在路径：</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>/usr/local/lib
 <span class="built_in">sudo</span> ldconfig
 <span class="built_in">sudo</span> vim /etc/bash.bashrc
-</code></pre><p><em>在末尾添加：</em></p>
-<pre><code><span class="constant">PKG_CONFIG_PATH</span>=<span class="variable">$PKG_CONFIG_PATH</span><span class="symbol">:/usr/local/lib/pkgconfig</span>  
-export <span class="constant">PKG_CONFIG_PATH</span> 
-</code></pre><p>至此，配置成功。</p>
+</pre></td></tr></table></figure>
+
+<p><em>在末尾添加：</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="constant">PKG_CONFIG_PATH</span>=<span class="variable">$PKG_CONFIG_PATH</span><span class="symbol">:/usr/local/lib/pkgconfig</span>  
+export <span class="constant">PKG_CONFIG_PATH</span>
+</pre></td></tr></table></figure>
+
+<p>至此，配置成功。</p>
 
       
     </div>
