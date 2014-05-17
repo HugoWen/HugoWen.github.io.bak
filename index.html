@@ -55,6 +55,56 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-05-17T03:24:56.000Z"><a href="/2014/05/17/hexo使用markdown插入本地图片/">5月 17 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/05/17/hexo使用markdown插入本地图片/">hexo使用markdown插入本地图片</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>由于没有寻觅到比较靠谱的图床，所以准备通过上传图片到GitHub上我的hexo项目里，再调用本地路径来调用的写法感觉应该就可以。稍微麻烦的是本地图片路径的写法问题。</p>
+<p>首先，在hexo目录下的<strong>source</strong>文件夹下建立一个img文件夹，用来保存博客里要用到的图片。比如我上传了一张名为<em>2.jpg</em>的图片。</p>
+<p>然后，在博客里使用这张图片，markdown格式与使用网络图片的格式相同：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>![<span class="link_label">说明文字(可选)</span>](<span class="link_url">图片链接</span>)
+</pre></td></tr></table></figure>
+
+<p>在这里，图片链接写入本地路径，就是在这里出现了一些小问题。<br>最开始我写的是：<br><del>../img/2.jpg</del></p>
+<p>但是在上传到博客中却发现没法打开，发现在博客中的图片地址写成了：  </p>
+<blockquote>
+<p>hugowen.com/2014/05/03/img/2.jpg</p>
+</blockquote>
+<p>又回头研究了一下hexo的文件结构，发现本地更新的文章和图片都会上传到hexo根目录的<strong>public</strong>文件夹下，点进去这个文件夹，就会发现，文章都是分别以 <em>/年/月/日/文章名</em> 这样的文件夹保存的，而图片则直接保存在public文件夹的根目录下的 <em>/img</em> 文件夹中，那么就明了了，在写本地路径的时候，相对路径应该退回到该文件夹下才可以成功链接到图片：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>![<span class="link_label">使用本地图片</span>](<span class="link_url">../../../../img/2.jpg</span>)
+</pre></td></tr></table></figure>
+
+<p>再上传之后，发现成功地显示图片了。<br>这样就不需要使用别人的图床了，很赞有没有！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-05-05T15:47:35.000Z"><a href="/2014/05/05/office2013-无法输入中文/">5月 5 2014</a></time>
       
       
@@ -194,50 +244,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-05-01T08:00:04.000Z"><a href="/2014/05/01/ubuntu配置qt4+opencv环境/">5月 1 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/05/01/ubuntu配置qt4+opencv环境/">Ubuntu配置qt4+opencv环境</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="配置系统环境"><strong>配置系统环境</strong></h2>
-<p><em>安装g++：</em></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install g++
-<span class="built_in">sudo</span> apt-get install g++ automake
-</pre></td></tr></table></figure>
-
-<p>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/05/01/ubuntu配置qt4+opencv环境/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -251,6 +257,8 @@
 <div class="widget tag">
   <h3 class="title">分类</h3>
   <ul class="entry">
+  
+    <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
   
     <li><a href="/categories/linux/">linux</a><small>2</small></li>
   

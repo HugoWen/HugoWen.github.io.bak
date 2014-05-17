@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Excel科学计数法转换文本 | Hugo&#39;s blog</title>
+  <title>hexo使用markdown插入本地图片 | Hugo&#39;s blog</title>
   <meta name="author" content="Hugo Wen">
   
   <meta name="description" content="热爱开源，崇尚自由">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Excel科学计数法转换文本"/>
+  <meta property="og:title" content="hexo使用markdown插入本地图片"/>
   <meta property="og:site_name" content="Hugo&#39;s blog"/>
 
   
@@ -54,23 +54,34 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-05-05T08:26:51.000Z"><a href="/2014/05/05/excel科学计数法转换文本/">5月 5 2014</a></time>
+        <time datetime="2014-05-17T03:24:56.000Z"><a href="/2014/05/17/hexo使用markdown插入本地图片/">5月 17 2014</a></time>
       
       
   
-    <h1 class="title">Excel科学计数法转换文本</h1>
+    <h1 class="title">hexo使用markdown插入本地图片</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>在Excel表格中处理csv格式通讯录，往往会遇到一个问题，就是电话号码超过一定位数后就会转换成科学计数法，这样再进行其他导出的时候就会无法正确显示，要么丢失精度，要么直接显示成科学计数法的形式。<a id="more"></a></p>
-<p>摸索半天，找到了一个完美的解决办法。选中需要转换的column，点击<em>数据-&gt;分列</em>，选择分隔符号，不选中任何符号，最后<strong>列数据类型</strong>选择文本。</p>
-<p><img src="http://ww3.sinaimg.cn/large/a15ae2e5gw1eg3ih9ffyuj20l702raak.jpg" alt="第一步"></p>
-<p><img src="http://ww1.sinaimg.cn/large/a15ae2e5gw1eg3ik6bu7aj20a2022t8v.jpg" alt="第二步"></p>
-<p><img src="http://ww1.sinaimg.cn/large/a15ae2e5gw1eg3iljxoa3j20dz01t0ss.jpg" alt="第三步"></p>
-<p><img src="http://ww3.sinaimg.cn/large/a15ae2e5gw1eg3imnryy5j205o02x0so.jpg" alt="第四步"></p>
-<p>OK，成功转换。</p>
+        <p>由于没有寻觅到比较靠谱的图床，所以准备通过上传图片到GitHub上我的hexo项目里，再调用本地路径来调用的写法感觉应该就可以。稍微麻烦的是本地图片路径的写法问题。</p>
+<p>首先，在hexo目录下的<strong>source</strong>文件夹下建立一个img文件夹，用来保存博客里要用到的图片。比如我上传了一张名为<em>2.jpg</em>的图片。</p>
+<p>然后，在博客里使用这张图片，markdown格式与使用网络图片的格式相同：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>![<span class="link_label">说明文字(可选)</span>](<span class="link_url">图片链接</span>)
+</pre></td></tr></table></figure>
+
+<p>在这里，图片链接写入本地路径，就是在这里出现了一些小问题。<br>最开始我写的是：<br><del>../img/2.jpg</del></p>
+<p>但是在上传到博客中却发现没法打开，发现在博客中的图片地址写成了：  </p>
+<blockquote>
+<p>hugowen.com/2014/05/03/img/2.jpg</p>
+</blockquote>
+<p>又回头研究了一下hexo的文件结构，发现本地更新的文章和图片都会上传到hexo根目录的<strong>public</strong>文件夹下，点进去这个文件夹，就会发现，文章都是分别以 <em>/年/月/日/文章名</em> 这样的文件夹保存的，而图片则直接保存在public文件夹的根目录下的 <em>/img</em> 文件夹中，那么就明了了，在写本地路径的时候，相对路径应该退回到该文件夹下才可以成功链接到图片：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>![<span class="link_label">使用本地图片</span>](<span class="link_url">../../../../img/2.jpg</span>)
+</pre></td></tr></table></figure>
+
+<p>再上传之后，发现成功地显示图片了。<br>这样就不需要使用别人的图床了，很赞有没有！</p>
 
       
     </div>
@@ -79,13 +90,13 @@
         
   
   <div class="categories">
-    <a href="/categories/软件技术/">软件技术</a>
+    <a href="/categories/hexo/">hexo</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/csv/">csv</a>, <a href="/tags/excel/">excel</a>, <a href="/tags/科学计数法/">科学计数法</a>, <a href="/tags/文本转换/">文本转换</a>
+    <a href="/tags/hexo/">hexo</a>, <a href="/tags/markdown/">markdown</a>, <a href="/tags/图片/">图片</a>, <a href="/tags/本地/">本地</a>
   </div>
 
         <!-- 
@@ -130,12 +141,12 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://hugowen.com/2014/05/05/excel科学计数法转换文本/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://hugowen.com/2014/05/17/hexo使用markdown插入本地图片/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
    -->
   <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/2014/05/05/excel科学计数法转换文本/" data-title="Excel科学计数法转换文本" data-url="http://hugowen.com/2014/05/05/excel科学计数法转换文本/"></div>
-  <!-- <div class="ds-thread" data-thread-key="/2014/05/05/excel科学计数法转换文本/" data-title="Excel科学计数法转换文本" data-url="hugowen.com"></div> -->
+	<div class="ds-thread" data-thread-key="/2014/05/17/hexo使用markdown插入本地图片/" data-title="hexo使用markdown插入本地图片" data-url="http://hugowen.com/2014/05/17/hexo使用markdown插入本地图片/"></div>
+  <!-- <div class="ds-thread" data-thread-key="/2014/05/17/hexo使用markdown插入本地图片/" data-title="hexo使用markdown插入本地图片" data-url="hugowen.com"></div> -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
