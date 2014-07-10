@@ -229,55 +229,15 @@
 </pre></td></tr></table></figure>
 
 <h2 id="php下配置Redis扩展使用">php下配置Redis扩展使用</h2>
-<p>下载安装php_redis.dll和php_igbinary.dll文件。<br>下面是对应php5.5的下载链接，根据自己的环境进行选择下载：</p>
-<p>php_redis-5.5-vc11-ts-x86-00233a.zip <a href="http://d-h.st/4A5" target="_blank">http://d-h.st/4A5</a><br>php_igbinary-5.5-vc11-ts-x86-c35d48.zip <a href="http://d-h.st/QGH" target="_blank">http://d-h.st/QGH</a>  </p>
-<p>php_redis-5.5-vc11-nts-x86-00233a.zip <a href="http://d-h.st/uGS" target="_blank">http://d-h.st/uGS</a><br>php_igbinary-5.5-vc11-nts-x86-c35d48.zip <a href="http://d-h.st/bei" target="_blank">http://d-h.st/bei</a></p>
-<p>php_redis-5.5-vc11-ts-x64-00233a.zip <a href="http://d-h.st/1tO" target="_blank">http://d-h.st/1tO</a><br>php_igbinary-5.5-vc11-ts-x64-c35d48.zip <a href="http://d-h.st/rYb" target="_blank">http://d-h.st/rYb</a>  </p>
-<p>php_redis-5.5-vc11-nts-x64-00233a.zip <a href="http://d-h.st/N0d" target="_blank">http://d-h.st/N0d</a><br>php_igbinary-5.5-vc11-nts-x64-c35d48.zip <a href="http://d-h.st/c1a" target="_blank">http://d-h.st/c1a</a></p>
-<p>将php_igbinary.dll和php_redis.dll放入php的ext目录下，然后修改php.ini，加入这两个扩展，顺序一定要按照如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="setting">extension=<span class="value">php_igbinary.dll</span></span>
-<span class="setting">extension=<span class="value">php_redis.dll</span></span>
-</pre></td></tr></table></figure>
-
-<p>重启Apache服务，查看<em>phpinfo()</em>，出现redis即配置成功。</p>
-<p>附php测试代码</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="variable">$redis</span> <span class="subst">=</span> <span class="literal">new</span> Redis();  
-<span class="variable">$redis</span><span class="subst">-&gt;</span>connect(<span class="string">"192.168.138.2"</span>,<span class="string">"6379"</span>);  <span class="comment">//php客户端设置的ip及端口  </span>
-<span class="comment">//存储一个 值  </span>
-<span class="variable">$redis</span><span class="subst">-&gt;</span><span class="built_in">set</span>(<span class="string">"say"</span>,<span class="string">"Hello World"</span>);  
-echo <span class="variable">$redis</span><span class="subst">-&gt;</span>get(<span class="string">"say"</span>);     <span class="comment">//应输出Hello World  </span>
-  
-<span class="comment">//存储多个值  </span>
-<span class="variable">$array</span> <span class="subst">=</span> <span class="built_in">array</span>(<span class="string">'first_key'</span><span class="subst">=&gt;</span><span class="string">'first_val'</span>,  
-          <span class="string">'second_key'</span><span class="subst">=&gt;</span><span class="string">'second_val'</span>,  
-          <span class="string">'third_key'</span><span class="subst">=&gt;</span><span class="string">'third_val'</span>);  
-<span class="variable">$array_get</span> <span class="subst">=</span> <span class="built_in">array</span>(<span class="string">'first_key'</span>,<span class="string">'second_key'</span>,<span class="string">'third_key'</span>);  
-<span class="variable">$redis</span><span class="subst">-&gt;</span>mset(<span class="variable">$array</span>);  
-var_dump(<span class="variable">$redis</span><span class="subst">-&gt;</span>mget(<span class="variable">$array_get</span>));
-</pre></td></tr></table></figure>
-
-<hr>
-<p><em>参考文章：</em><br><a href="http://os.51cto.com/art/201403/431103.htm" target="_blank">http://os.51cto.com/art/201403/431103.htm</a><br><a href="http://www.iteye.com/topic/1132714" target="_blank">http://www.iteye.com/topic/1132714</a><br><a href="http://alfred-long.iteye.com/blog/1684545" target="_blank">http://alfred-long.iteye.com/blog/1684545</a></p>
-
+<p>下载安装php_redis.dll和php_igbinary.dll文件。<br>下面是对应php5.5的下载链接，根据自己的环境进行选择下载：<br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/07/10/windows下redis的安装和在php下的扩展使用/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
@@ -386,20 +346,15 @@ var_dump(<span class="variable">$redis</span><span class="subst">-&gt;</span>mge
 <span class="tag">&lt;/VirtualHost&gt;</span>
 </pre></td></tr></table></figure>
 
-<h2 id="3-编辑hosts文件">3.编辑<em>hosts</em>文件</h2>
-<p>文件路径为：<em>C:\WINDOWS\system32\drivers\etc\hosts</em>，加入代码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>    kudong<span class="preprocessor">.com</span>
-</pre></td></tr></table></figure>
-
-<p><strong>重启Apache服务</strong>，完成虚拟主机配置。</p>
-<hr>
-<p><em>参考文章：</em><br><a href="http://blog.csdn.net/liruxing1715/article/details/7864991" target="_blank">http://blog.csdn.net/liruxing1715/article/details/7864991</a></p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/07/10/apache配置虚拟主机/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
@@ -478,182 +433,15 @@ var_dump(<span class="variable">$redis</span><span class="subst">-&gt;</span>mge
 </pre></td><td class="code"><pre>/etc/init<span class="preprocessor">.d</span>/iptables restart
 </pre></td></tr></table></figure>
 
-<h2 id="2-关闭SELINUX">2.关闭SELINUX</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>vi /etc/selinux/config
-</pre></td></tr></table></figure>
-
-
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="preprocessor">#SELINUX=enforcing #注释掉</span>
-<span class="preprocessor">#SELINUXTYPE=targeted #注释掉</span>
-SELINUX=disabled #增加
-</pre></td></tr></table></figure>
-
-<p>重启系统</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">shutdown</span> -r now
-</pre></td></tr></table></figure>
-
-<h2 id="3-安装第三方yum源">3.安装第三方yum源</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>yum install wget
-wget http:<span class="comment">//www.atomicorp.com/installers/atomic</span>
-sh ./atomic
-yum <span class="keyword">check</span>-update
-</pre></td></tr></table></figure>
-
-<h2 id="4-安装nginx">4.安装nginx</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>yum <span class="keyword">install</span> nginx
-</pre></td></tr></table></figure>
-
-<p>设置开机启动</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>chkconfig nginx <span class="command"><span class="keyword">on</span></span>
-</pre></td></tr></table></figure>
-
-<p>启动nginx</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>service nginx <span class="operator"><span class="keyword">start</span></span>
-</pre></td></tr></table></figure>
-
-<h2 id="5-安装mysql">5.安装mysql</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>yum install mysql mysql-<span class="keyword">server</span>
-</pre></td></tr></table></figure>
-
-<p>启动mysql</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>/etc/init.d/mysqld <span class="operator"><span class="keyword">start</span></span>
-</pre></td></tr></table></figure>
-
-<p>设置开机启动</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>chkconfig mysqld <span class="command"><span class="keyword">on</span></span>
-</pre></td></tr></table></figure>
-
-<p>为root账户设置密码</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>mysql_secure_installation
-</pre></td></tr></table></figure>
-
-<p>设置完成后，重启mysql</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>/etc/init<span class="preprocessor">.d</span>/mysqld restart
-</pre></td></tr></table></figure>
-
-<h2 id="6-安装php5">6.安装php5</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>yum <span class="keyword">install</span> php php-fpm
-</pre></td></tr></table></figure>
-
-<p>安装php组件，使php5支持mysql</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>yum install php<span class="attribute">-mysql</span> php<span class="attribute">-gd</span> libjpeg<span class="subst">*</span> php<span class="attribute">-imap</span> php<span class="attribute">-ldap</span> php<span class="attribute">-odbc</span> php<span class="attribute">-pear</span> php<span class="attribute">-xml</span> php<span class="attribute">-xmlrpc</span> php<span class="attribute">-mbstring</span> php<span class="attribute">-mcrypt</span> php<span class="attribute">-bcmath</span> php<span class="attribute">-mhash</span> libmcrypt
-</pre></td></tr></table></figure>
-
-<p>设置php-fpm开机启动</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>chkconfig php-fpm <span class="command"><span class="keyword">on</span></span>
-</pre></td></tr></table></figure>
-
-<p>启动php-fpm</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>/etc/init.d/php-fpm <span class="operator"><span class="keyword">start</span></span>
-</pre></td></tr></table></figure>
-
-<h2 id="7-配置nginx支持php">7.配置nginx支持php</h2>
-<p>编辑nginx.conf</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>vim /etc/nginx/nginx<span class="preprocessor">.conf</span>
-</pre></td></tr></table></figure>
-
-
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>user nginx nginx	<span class="comment">#修改nginx账户为：nginx组的nginx用户</span>
-</pre></td></tr></table></figure>
-
-<p>编辑default.conf</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">vim</span> /etc/nginx/conf.d/<span class="default"><span class="keyword">default</span>.conf</span>
-</pre></td></tr></table></figure>
-
-
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">index</span> <span class="keyword">index</span>.php <span class="keyword">index</span>.html <span class="keyword">index</span>.htm;
-
-<span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
-<span class="comment">#</span>
-location ~ \.php$ {
-root html;
-fastcgi_pass <span class="number">127.0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">9000</span>;
-fastcgi_index <span class="keyword">index</span>.php;
-fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;
-include fastcgi_params;
-}
-<span class="comment">#取消FastCGI server部分location的注释,并要注意fastcgi_param行的参数,改为$document_root$fastcgi_script_name,或者使用绝对路径</span>
-</pre></td></tr></table></figure>
-
-<p>重启nginx</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>service nginx restart
-</pre></td></tr></table></figure>
-
-<h2 id="8-php配置">8.php配置</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>vim /etc/php<span class="preprocessor">.ini</span>
-</pre></td></tr></table></figure>
-
-
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="built_in">date</span>.timezone = PRC	   <span class="preprocessor">#把前面的分号去掉，改为date.timezone = PRC</span>
-expose_php = <span class="keyword">Off</span> 		 <span class="preprocessor">#禁止显示php版本的信息</span>
-magic_quotes_gpc = <span class="keyword">On</span> 	<span class="preprocessor">#打开magic_quotes_gpc来防止SQL注入</span>
-short_open_tag = <span class="keyword">ON</span> 	  <span class="preprocessor">#在229行支持php短标签</span>
-open_basedir = .:/tmp/    <span class="preprocessor">#设置表示允许访问当前目录(即PHP脚本文件所在之目录)和/tmp/目录,可以防止php木马跨站</span>
-</pre></td></tr></table></figure>
-
-<h2 id="9-php-fpm配置">9.php-fpm配置</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>vim /etc/php-fpm<span class="preprocessor">.d</span>/www<span class="preprocessor">.conf</span>
-</pre></td></tr></table></figure>
-
-
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>user = nginx <span class="preprocessor">#修改用户为nginx</span>
-<span class="keyword">group</span> = nginx <span class="preprocessor">#修改组为nginx</span>
-</pre></td></tr></table></figure>
-
-<p><strong>至此，CentOS服务器搭建LNMP环境成功！</strong></p>
-<hr>
-<p><em>参考文章：</em><br><a href="http://www.jb51.net/article/37986.htm" target="_blank">http://www.jb51.net/article/37986.htm</a></p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/07/09/centos服务器搭建lnmp环境/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
@@ -693,9 +481,9 @@ open_basedir = .:/tmp/    <span class="preprocessor">#设置表示允许访问�
   
     <li><a href="/categories/linux/qt/">qt</a><small>1</small></li>
   
-    <li><a href="/categories/linux/php/服务器/">服务器</a><small>1</small></li>
-  
     <li><a href="/categories/php/服务器/">服务器</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/php/服务器/">服务器</a><small>1</small></li>
   
     <li><a href="/categories/软件技术/">软件技术</a><small>2</small></li>
   
