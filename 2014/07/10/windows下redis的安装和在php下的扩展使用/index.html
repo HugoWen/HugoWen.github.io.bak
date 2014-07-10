@@ -214,13 +214,81 @@
     </header>
     <div class="entry">
       
-        
+        <h2 id="Windows下Redis的安装和开启服务">Windows下Redis的安装和开启服务</h2>
+<p>下载并安装Redis对应的Windows版本，下载地址：<a href="https://github.com/mythz/redis-windows" target="_blank">https://github.com/mythz/redis-windows</a></p>
+<p>根据系统选择需要的文件并解压，启动redis服务。<br>进入redis目录，开启服务</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>redis-server<span class="preprocessor">.exe</span> redis<span class="preprocessor">.conf</span>
+</pre></td></tr></table></figure>
+
+<p>在需要redis服务时，此命令窗口要保持开启，关闭时redis服务也会随之关闭。</p>
+<p>开启另一个命令行窗口，进入redis目录</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>redis<span class="attribute">-cli</span><span class="built_in">.</span>exe <span class="attribute">-h</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.105</span>(自己的ip地址) <span class="attribute">-p</span> <span class="number">6379</span>
+</pre></td></tr></table></figure>
+
+<h2 id="php下配置Redis扩展使用">php下配置Redis扩展使用</h2>
+<p>下载安装php_redis.dll和php_igbinary.dll文件。<br>下面是对应php5.5的下载链接，根据自己的环境进行选择下载：</p>
+<p>php_redis-5.5-vc11-ts-x86-00233a.zip <a href="http://d-h.st/4A5" target="_blank">http://d-h.st/4A5</a><br>php_igbinary-5.5-vc11-ts-x86-c35d48.zip <a href="http://d-h.st/QGH" target="_blank">http://d-h.st/QGH</a>  </p>
+<p>php_redis-5.5-vc11-nts-x86-00233a.zip <a href="http://d-h.st/uGS" target="_blank">http://d-h.st/uGS</a><br>php_igbinary-5.5-vc11-nts-x86-c35d48.zip <a href="http://d-h.st/bei" target="_blank">http://d-h.st/bei</a></p>
+<p>php_redis-5.5-vc11-ts-x64-00233a.zip <a href="http://d-h.st/1tO" target="_blank">http://d-h.st/1tO</a><br>php_igbinary-5.5-vc11-ts-x64-c35d48.zip <a href="http://d-h.st/rYb" target="_blank">http://d-h.st/rYb</a>  </p>
+<p>php_redis-5.5-vc11-nts-x64-00233a.zip <a href="http://d-h.st/N0d" target="_blank">http://d-h.st/N0d</a><br>php_igbinary-5.5-vc11-nts-x64-c35d48.zip <a href="http://d-h.st/c1a" target="_blank">http://d-h.st/c1a</a></p>
+<p>将php_igbinary.dll和php_redis.dll放入php的ext目录下，然后修改php.ini，加入这两个扩展，顺序一定要按照如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="setting">extension=<span class="value">php_igbinary.dll</span></span>
+<span class="setting">extension=<span class="value">php_redis.dll</span></span>
+</pre></td></tr></table></figure>
+
+<p>重启Apache服务，查看<em>phpinfo()</em>，出现redis即配置成功。</p>
+<p>附php测试代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="variable">$redis</span> <span class="subst">=</span> <span class="literal">new</span> Redis();  
+<span class="variable">$redis</span><span class="subst">-&gt;</span>connect(<span class="string">"192.168.138.2"</span>,<span class="string">"6379"</span>);  <span class="comment">//php客户端设置的ip及端口  </span>
+<span class="comment">//存储一个 值  </span>
+<span class="variable">$redis</span><span class="subst">-&gt;</span><span class="built_in">set</span>(<span class="string">"say"</span>,<span class="string">"Hello World"</span>);  
+echo <span class="variable">$redis</span><span class="subst">-&gt;</span>get(<span class="string">"say"</span>);     <span class="comment">//应输出Hello World  </span>
+  
+<span class="comment">//存储多个值  </span>
+<span class="variable">$array</span> <span class="subst">=</span> <span class="built_in">array</span>(<span class="string">'first_key'</span><span class="subst">=&gt;</span><span class="string">'first_val'</span>,  
+          <span class="string">'second_key'</span><span class="subst">=&gt;</span><span class="string">'second_val'</span>,  
+          <span class="string">'third_key'</span><span class="subst">=&gt;</span><span class="string">'third_val'</span>);  
+<span class="variable">$array_get</span> <span class="subst">=</span> <span class="built_in">array</span>(<span class="string">'first_key'</span>,<span class="string">'second_key'</span>,<span class="string">'third_key'</span>);  
+<span class="variable">$redis</span><span class="subst">-&gt;</span>mset(<span class="variable">$array</span>);  
+var_dump(<span class="variable">$redis</span><span class="subst">-&gt;</span>mget(<span class="variable">$array_get</span>));
+</pre></td></tr></table></figure>
+
+<hr>
+<p><em>参考文章：</em><br><a href="http://os.51cto.com/art/201403/431103.htm" target="_blank">http://os.51cto.com/art/201403/431103.htm</a><br><a href="http://www.iteye.com/topic/1132714" target="_blank">http://www.iteye.com/topic/1132714</a><br><a href="http://alfred-long.iteye.com/blog/1684545" target="_blank">http://alfred-long.iteye.com/blog/1684545</a></p>
+
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/php/">php</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/redis/">redis</a>, <a href="/tags/php/">php</a>
+  </div>
+
         <!-- 
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -301,7 +369,7 @@ var duoshuoQuery = {short_name:"hugowen"};
   
     <li><a href="/categories/linux/qt/opencv/">opencv</a><small>1</small></li>
   
-    <li><a href="/categories/php/">php</a><small>3</small></li>
+    <li><a href="/categories/php/">php</a><small>4</small></li>
   
     <li><a href="/categories/linux/php/">php</a><small>1</small></li>
   
