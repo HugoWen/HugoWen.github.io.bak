@@ -205,31 +205,28 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-05-01T08:00:04.000Z"><a href="/2014/05/01/ubuntu配置qt4+opencv环境/">5月 1 2014</a></time>
+        <time datetime="2014-05-17T03:24:56.000Z"><a href="/2014/05/17/hexo使用markdown插入本地图片/">5月 17 2014</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/05/01/ubuntu配置qt4+opencv环境/">Ubuntu配置qt4+opencv环境</a></h1>
+    <h1 class="title"><a href="/2014/05/17/hexo使用markdown插入本地图片/">hexo使用markdown插入本地图片</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="配置系统环境"><strong>配置系统环境</strong></h2>
-<p><em>安装g++：</em></p>
+        <p>由于没有寻觅到比较靠谱的图床，所以准备通过上传图片到GitHub上我的hexo项目里，再使用本地路径来调用的方法感觉应该可以。稍微麻烦的是本地图片路径的写法问题。</p>
+<p>首先，在hexo目录下的<strong>source</strong>文件夹下建立一个img文件夹，用来保存博客里要用到的图片。比如我上传了一张名为<em>2.jpg</em>的图片。</p>
+<p>然后，在博客里使用这张图片，markdown格式与使用网络图片的格式相同：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install g++
-<span class="built_in">sudo</span> apt-get install g++ automake
+</pre></td><td class="code"><pre>![<span class="link_label">说明文字(可选)</span>](<span class="link_url">图片链接</span>)
 </pre></td></tr></table></figure>
 
-<p><em>更新和升级系统：</em></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get update
-<span class="built_in">sudo</span> apt-get upgrade
-</pre></td></tr></table></figure>
-
+<p>在这里，图片链接写入本地路径，就是在这里出现了一些小问题。<br>最开始我写的是：<br><del>../img/2.jpg</del></p>
+<p>但是在上传到博客中却发现没法打开，在博客中的图片地址写成了：  </p>
+<blockquote>
+<p>hugowen.com/2014/05/03/img/2.jpg</p>
+</blockquote>
 <p>
       
     </div>
@@ -237,7 +234,7 @@
       
         
           <div class="alignleft">
-            <a href="/2014/05/01/ubuntu配置qt4+opencv环境/#more" class="more-link">阅读全文</a>
+            <a href="/2014/05/17/hexo使用markdown插入本地图片/#more" class="more-link">阅读全文</a>
           </div>
         
         
@@ -256,29 +253,142 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-05-01T07:36:42.000Z"><a href="/2014/05/01/centos自动登录/">5月 1 2014</a></time>
+        <time datetime="2014-05-05T15:47:35.000Z"><a href="/2014/05/05/office2013-无法输入中文/">5月 5 2014</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/05/01/centos自动登录/">CentOS自动登录</a></h1>
+    <h1 class="title"><a href="/2014/05/05/office2013-无法输入中文/">Office2013 无法输入中文</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>最近做的一个项目，需要去掉CentOS的登录界面直接进入系统，简单的配置即可解决。</p>
-<p><em>修改文件：</em>  </p>
-<p><code>vim /etc/gdm/custom.conf</code></p>
-<p><em>加入内容：</em> </p>
+        <p>要准备开始写毕业论文，尝个鲜下载了个Office2013，总体体验不错，但刚开始出现了小问题，就是无法切换输入法输入中文。<br>想到可能是我删除了系统提供的输入法选项只保留了自己的google输入法所致，于是进入<strong>输入法管理</strong>界面，添加了一个微软拼音输入法，再切换到Office，现在可以切换输入法并输入中文了。</p>
+<p><img src="http://ww4.sinaimg.cn/large/a15ae2e5jw1eg3ubrg9eoj20k10cp41b.jpg" alt=""></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-05-05T08:26:51.000Z"><a href="/2014/05/05/excel科学计数法转换文本/">5月 5 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/05/05/excel科学计数法转换文本/">Excel科学计数法转换文本</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在Excel表格中处理csv格式通讯录，往往会遇到一个问题，就是电话号码超过一定位数后就会转换成科学计数法，这样再进行其他导出的时候就会无法正确显示，要么丢失精度，要么直接显示成科学计数法的形式。</p>
+<p>摸索半天，找到了一个完美的解决办法。选中需要转换的column，点击<em>数据-&gt;分列</em>，选择分隔符号，不选中任何符号，最后<strong>列数据类型</strong>选择文本。</p>
+<p><img src="http://ww3.sinaimg.cn/large/a15ae2e5gw1eg3ih9ffyuj20l702raak.jpg" alt="第一步"></p>
+<p><img src="http://ww1.sinaimg.cn/large/a15ae2e5gw1eg3ik6bu7aj20a2022t8v.jpg" alt="第二步"></p>
+<p><img src="http://ww1.sinaimg.cn/large/a15ae2e5gw1eg3iljxoa3j20dz01t0ss.jpg" alt="第三步"><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/05/05/excel科学计数法转换文本/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-05-03T12:17:44.000Z"><a href="/2014/05/03/netbeans80设置consola字体并解决中文乱码问题/">5月 3 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/05/03/netbeans80设置consola字体并解决中文乱码问题/">Netbeans8.0设置Consola字体并解决中文乱码问题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在Netbeans8.0上开发php，设置字体为Consola后，发现中文显示是乱码的，经过修改jre的配置文件成功解决了这个问题。</p>
+<p>进入jdk安装目录下 <strong>/jre/lib</strong> 文件夹，找到 <strong>fontconfig.properties.src</strong> ，拷贝为 <strong>fontconfig.properties</strong> ，修改此文件。</p>
+<p><em>找到：</em></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="title">[daemon]</span>  
-<span class="setting">AutomaticLogin=<span class="value">自动登陆的用户名  </span></span>
-<span class="setting">AutomaticLoginEnable=<span class="value"><span class="keyword">True</span></span></span>
+4
+5
+</pre></td><td class="code"><pre>sequence<span class="preprocessor">.monospaced</span><span class="preprocessor">.GBK</span>=chinese-ms936,alphabetic,dingbats,symbol,chinese-ms936-extb
+monospaced<span class="preprocessor">.plain</span><span class="preprocessor">.alphabetic</span>=Courier New
+monospaced<span class="preprocessor">.bold</span><span class="preprocessor">.alphabetic</span>=Courier New Bold
+monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Courier New Italic
+monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor">.alphabetic</span>=Courier New Bold Italic
 </pre></td></tr></table></figure>
 
+<p><em>修改为：</em><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/05/03/netbeans80设置consola字体并解决中文乱码问题/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-05-03T10:29:45.000Z"><a href="/2014/05/03/文化的传承/">5月 3 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/05/03/文化的传承/">文化的传承</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
       
     </div>
     <footer>
@@ -300,6 +410,8 @@
     <a href="/" class="alignleft prev">上一页</a>
   
   
+    <a href="/page/3/" class="alignright next">下一页</a>
+  
   <div class="clearfix"></div>
 </nav></div></div>
     <aside id="sidebar" class="alignright">
@@ -312,13 +424,19 @@
   
     <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/categories/linux/">linux</a><small>2</small></li>
+    <li><a href="/categories/linux/">linux</a><small>3</small></li>
   
     <li><a href="/categories/linux/qt/opencv/">opencv</a><small>1</small></li>
   
-    <li><a href="/categories/php/">php</a><small>1</small></li>
+    <li><a href="/categories/php/">php</a><small>3</small></li>
+  
+    <li><a href="/categories/linux/php/">php</a><small>1</small></li>
   
     <li><a href="/categories/linux/qt/">qt</a><small>1</small></li>
+  
+    <li><a href="/categories/linux/php/服务器/">服务器</a><small>1</small></li>
+  
+    <li><a href="/categories/php/服务器/">服务器</a><small>1</small></li>
   
     <li><a href="/categories/软件技术/">软件技术</a><small>2</small></li>
   
