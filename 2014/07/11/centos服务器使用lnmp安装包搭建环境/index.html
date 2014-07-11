@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo使用markdown插入本地图片 | Hugo&#39;s blog</title>
+  <title>CentOS服务器使用LNMP安装包搭建环境 | Hugo&#39;s blog</title>
   <meta name="author" content="Hugo Wen">
   
   <meta name="description" content="热爱开源，崇尚自由">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="hexo使用markdown插入本地图片"/>
+  <meta property="og:title" content="CentOS服务器使用LNMP安装包搭建环境"/>
   <meta property="og:site_name" content="Hugo&#39;s blog"/>
 
   
@@ -204,34 +204,33 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-05-17T03:24:56.000Z"><a href="/2014/05/17/hexo使用markdown插入本地图片/">5月 17 2014</a></time>
+        <time datetime="2014-07-11T07:09:21.000Z"><a href="/2014/07/11/centos服务器使用lnmp安装包搭建环境/">7月 11 2014</a></time>
       
       
   
-    <h1 class="title">hexo使用markdown插入本地图片</h1>
+    <h1 class="title">CentOS服务器使用LNMP安装包搭建环境</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>由于没有寻觅到比较靠谱的图床，所以准备通过上传图片到GitHub上我的hexo项目里，再使用本地路径来调用的方法感觉应该可以。稍微麻烦的是本地图片路径的写法问题。</p>
-<p>首先，在hexo目录下的<strong>source</strong>文件夹下建立一个img文件夹，用来保存博客里要用到的图片。比如我上传了一张名为<em>2.jpg</em>的图片。</p>
-<p>然后，在博客里使用这张图片，markdown格式与使用网络图片的格式相同：</p>
+        <p>之前做过手动配置LNMP环境，感觉十分复杂麻烦，在这里使用LNMP安装包来进行环境搭建。</p>
+<h2 id="1-执行screen命令">1.执行screen命令</h2>
+<p>执行screen命令的目的是当使用远程工具操作服务器时，很可能会出现网络断线的情况，这样就会造成lnmp安装中断，有可能前功尽弃。为了防止这种现象，在安装lnmp前，先执行screen命令来进行解决。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>![<span class="link_label">说明文字(可选)</span>](<span class="link_url">图片链接</span>)
+2
+</pre></td><td class="code"><pre>yum <span class="keyword">install</span> screen
+screen -S lnmp
 </pre></td></tr></table></figure>
 
-<p>在这里，图片链接写入本地路径，就是在这里出现了一些小问题。<br>最开始我写的是：<br><del>../img/2.jpg</del></p>
-<p>但是在上传到博客中却发现没法打开，在博客中的图片地址写成了：  </p>
-<blockquote>
-<p>hugowen.com/2014/05/03/img/2.jpg</p>
-</blockquote>
-<p><a id="more"></a><br>又回头研究了一下hexo的文件结构，发现本地更新的文章和图片都会上传到hexo根目录的<strong>public</strong>文件夹下，点进去这个文件夹，就会发现，文章都是分别以 <em>/年/月/日/文章名</em> 这样的文件夹保存的，而图片则直接保存在public文件夹的根目录下的 <em>/img</em> 文件夹中，那么就明了了，在写本地路径的时候，相对路径应该退回到该文件夹下才可以成功链接到图片：</p>
+<h2 id="2-下载并安装LNMP安装包">2.下载并安装LNMP安装包</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>![<span class="link_label">使用本地图片</span>](<span class="link_url">../../../../img/2.jpg</span>)
+</pre></td><td class="code"><pre>wget -c http://soft<span class="preprocessor">.vpser</span><span class="preprocessor">.net</span>/lnmp/lnmp1<span class="number">.1</span>-full<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> && tar zxf lnmp1<span class="number">.1</span>-full<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> && cd lnmp1<span class="number">.1</span>-full && ./centos<span class="preprocessor">.sh</span>
 </pre></td></tr></table></figure>
 
-<p>再上传之后，发现成功地显示图片了。<br>这样就不需要使用别人的图床了，很赞有没有！</p>
+<p>中途需要一些基本设置账户，按照操作一步步来就可成功安装。安装成功后基本的配置都已经搞定，十分方便，省时省力！</p>
+<hr>
+<p><em>参考文章：</em><br><a href="http://lnmp.org/install.html" target="_blank">http://lnmp.org/install.html</a></p>
 
       
     </div>
@@ -240,13 +239,13 @@
         
   
   <div class="categories">
-    <a href="/categories/hexo/">hexo</a>
+    <a href="/categories/服务器/">服务器</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>, <a href="/tags/markdown/">markdown</a>, <a href="/tags/图片/">图片</a>, <a href="/tags/本地/">本地</a>
+    <a href="/tags/服务器/">服务器</a>, <a href="/tags/CentOS/">CentOS</a>, <a href="/tags/LNMP/">LNMP</a>, <a href="/tags/nginx/">nginx</a>
   </div>
 
         <!-- 
@@ -291,12 +290,12 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://hugowen.com/2014/05/17/hexo使用markdown插入本地图片/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://hugowen.com/2014/07/11/centos服务器使用lnmp安装包搭建环境/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
    -->
   <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/2014/05/17/hexo使用markdown插入本地图片/" data-title="hexo使用markdown插入本地图片" data-url="http://hugowen.com/2014/05/17/hexo使用markdown插入本地图片/"></div>
-  <!-- <div class="ds-thread" data-thread-key="/2014/05/17/hexo使用markdown插入本地图片/" data-title="hexo使用markdown插入本地图片" data-url="hugowen.com"></div> -->
+	<div class="ds-thread" data-thread-key="/2014/07/11/centos服务器使用lnmp安装包搭建环境/" data-title="CentOS服务器使用LNMP安装包搭建环境" data-url="http://hugowen.com/2014/07/11/centos服务器使用lnmp安装包搭建环境/"></div>
+  <!-- <div class="ds-thread" data-thread-key="/2014/07/11/centos服务器使用lnmp安装包搭建环境/" data-title="CentOS服务器使用LNMP安装包搭建环境" data-url="hugowen.com"></div> -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

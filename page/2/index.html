@@ -205,6 +205,61 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-07-09T14:03:47.000Z"><a href="/2014/07/09/centos服务器搭建lnmp环境/">7月 9 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/09/centos服务器搭建lnmp环境/">CentOS服务器搭建LNMP环境</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>记录CentOS服务器搭建LNMP(linux+nginx+mysql+php)的步骤。</p>
+<h2 id="1-配置防火墙">1.配置防火墙</h2>
+<p>开启80端口、3306端口</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>vim /etc/sysconfig/iptables
+</pre></td></tr></table></figure>
+
+<p>在默认的22端口规则下添加：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>-A INPUT -<span class="keyword">m</span> <span class="keyword">state</span> --<span class="keyword">state</span> NEW -<span class="keyword">m</span> tcp -p tcp --dport <span class="number">80</span> -j ACCEPT <span class="comment">#允许80端口通过防火墙</span>
+-A INPUT -<span class="keyword">m</span> <span class="keyword">state</span> --<span class="keyword">state</span> NEW -<span class="keyword">m</span> tcp -p tcp --dport <span class="number">3306</span> -j ACCEPT <span class="comment">#允许3306端口通过防火墙</span>
+</pre></td></tr></table></figure>
+
+<p>重启防火墙</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>/etc/init<span class="preprocessor">.d</span>/iptables restart
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/09/centos服务器搭建lnmp环境/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-05-17T03:24:56.000Z"><a href="/2014/05/17/hexo使用markdown插入本地图片/">5月 17 2014</a></time>
       
       
@@ -372,38 +427,6 @@ monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-05-03T10:29:45.000Z"><a href="/2014/05/03/文化的传承/">5月 3 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/05/03/文化的传承/">文化的传承</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -430,7 +453,7 @@ monospaced<span class="preprocessor">.bolditalic</span><span class="preprocessor
   
     <li><a href="/categories/qt/">qt</a><small>1</small></li>
   
-    <li><a href="/categories/服务器/">服务器</a><small>2</small></li>
+    <li><a href="/categories/服务器/">服务器</a><small>3</small></li>
   
     <li><a href="/categories/软件技术/">软件技术</a><small>2</small></li>
   
