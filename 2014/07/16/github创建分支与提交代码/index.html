@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>中文乱码 | Hugo&#39;s blog</title>
+  <title>Github创建分支与提交代码 | Hugo&#39;s blog</title>
   <meta name="author" content="Hugo Wen">
   
   <meta name="description" content="热爱开源，崇尚自由">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Github创建分支与提交代码"/>
   <meta property="og:site_name" content="Hugo&#39;s blog"/>
 
   
@@ -198,25 +198,148 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">中文乱码</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-07-16T04:20:57.000Z"><a href="/2014/07/16/github创建分支与提交代码/">7月 16 2014</a></time>
+      
+      
+  
+    <h1 class="title">Github创建分支与提交代码</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+        <h1 id="创建项目分支">创建项目分支</h1>
+<p>在已经存在的项目中建立分支，从而为项目贡献自己的代码或者作为一个新的项目的开始。记录下创建分支的简单步骤以及基本的提交代码到Github的命令。</p>
+<h2 id="1-_选择repository创建分支">1. 选择repository创建分支</h2>
+<p>在repository主页上点击<em>fork</em>按钮。</p>
+<p><img src="../../../../img/1407161234.jpg" alt=""></p>
+<h2 id="2-_Clone分支到本地">2. Clone分支到本地</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>git <span class="keyword">clone</span> https:<span class="comment">//github.com/username/Spoon-Knife.git</span>
+</pre></td></tr></table></figure>
 
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2014-05-03T12:17:44.000Z"><a href="/2014/05/03/netbeans80设置consola字体并解决中文乱码问题/">5月 3 2014</a></time>
-            
-              <h1 class="title"><a href="/2014/05/03/netbeans80设置consola字体并解决中文乱码问题/">Netbeans8.0设置Consola字体并解决中文乱码问题</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+<h2 id="3-_配置本地库与原始库的关联">3. 配置本地库与原始库的关联</h2>
+<p>由于克隆后的本地库的只有一个与自己的GitHub上的分支关联的名为origin的远程，所以要提交自己的更新到原始库，必须配置与原始库<a href="https://github.com/octocat/Spoon-Knife的关联，名为upstream" target="_blank">https://github.com/octocat/Spoon-Knife的关联，名为upstream</a></p>
+<p>执行以下命令：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>cd Spoon-Knife
+git remote <span class="keyword">add</span> upstream https://github<span class="preprocessor">.com</span>/octocat/Spoon-Knife<span class="preprocessor">.git</span>	<span class="preprocessor">#添加名为upstream的原始库关联</span>
+git fetch upstream	<span class="preprocessor">#从原始库抓取更新</span>
+</pre></td></tr></table></figure>
+
+<h1 id="提交代码">提交代码</h1>
+<p><em>提交更新代码到项目</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>git <span class="operator"><span class="keyword">commit</span> -a -m <span class="string">'Update README'</span>
+git push origin master
+git <span class="keyword">fetch</span> upstream</span>
+</pre></td></tr></table></figure>
+
+<p><em>添加一个新的文件到项目</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>git add 文件名 
+git <span class="operator"><span class="keyword">commit</span> -a -m <span class="string">'Add new doc'</span>
+git push origin master
+git <span class="keyword">fetch</span> upstream</span>
+</pre></td></tr></table></figure>
+
+<h1 id="提交项目分支">提交项目分支</h1>
+<p>将自己修改的项目分支提交到原项目中，点击repository页右边栏<strong>Pull Request</strong>,进入页面填写标题和评论，然后点发送，等待原始库admin审核，审核成功后，即merge到原始代码库，完成项目代码提交。<br><img src="../../../../img/1407161348.jpg" alt=""></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Git/">Git</a>
   </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/github/">github</a>, <a href="/tags/分支/">分支</a>, <a href="/tags/git/">git</a>
+  </div>
+
+        <!-- 
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+ -->
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <!--<h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://hugowen.com/2014/07/16/github创建分支与提交代码/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+   -->
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="/2014/07/16/github创建分支与提交代码/" data-title="Github创建分支与提交代码" data-url="http://hugowen.com/2014/07/16/github创建分支与提交代码/"></div>
+  <!-- <div class="ds-thread" data-thread-key="/2014/07/16/github创建分支与提交代码/" data-title="Github创建分支与提交代码" data-url="hugowen.com"></div> -->
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hugowen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script>
