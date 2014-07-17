@@ -218,7 +218,7 @@
         <p>在Symfony2中有一种简单的方法添加和更新vender库。</p>
 <h3 id="1-_修改composer-json文件">1. 修改<em>composer.json</em>文件</h3>
 <p>添加代码到<em>composer.json</em>文件的<em>require</em>区块中，以在更新vender库时成功识别要添加的Bundle，这里以添加<em>DoctrineFixturesBundle</em>为例。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<figure class="highlight json"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -228,14 +228,14 @@
 8
 9
 </pre></td><td class="code"><pre>// composer.json
-// <span class="keyword">...</span>
-    <span class="string">"require"</span>: {
-        // <span class="keyword">...</span>
-        <span class="string">"doctrine/doctrine-fixtures-bundle"</span>: <span class="string">"dev-master"</span>,
-        <span class="string">"doctrine/data-fixtures"</span>: <span class="string">"dev-master"</span>
+// ...
+    "require": {
+        // ...
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "doctrine/data-fixtures": "dev-master"
     },
 
-// <span class="keyword">...</span>
+// ...
 </pre></td></tr></table></figure>
 
 <h3 id="2-_更新vender库">2. 更新vender库</h3>
@@ -245,7 +245,7 @@
 
 <h3 id="3-_在app/AppKernel-php中注册">3. 在<em>app/AppKernel.php</em>中注册</h3>
 <p>在<em>app/AppKernel.php</em>文件中注册新添加的Bundle，注册之后才能成功使用。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<figure class="highlight phpa"><table><tr><td class="gutter"><pre>1
 2
 3
 4
