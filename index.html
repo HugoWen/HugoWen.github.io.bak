@@ -205,6 +205,58 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-07-17T09:48:28.000Z"><a href="/2014/07/17/symfony2配置bundle路由信息/">7月 17 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/17/symfony2配置bundle路由信息/">Symfony2配置Bundle路由信息</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Symfony2有一套很规范的路由配置方式。在创建新的<strong>Bundle</strong>的时候，通过从Symfony主配置文件一步步地引用来实现路由到当前Bundle的路径信息。</p>
+<p>下面记录下进行路由信息的简单配置。</p>
+<h3 id="1-_修改/app/config/routing-yml文件">1. 修改<em>/app/config/routing.yml</em>文件</h3>
+<p>这是整个系统的主路由信息配置文件，修改<strong>resouce</strong>信息，引入到Bundle下的<strong>routing.yml</strong>文件并在Bundle下的routing文件进行配置，这样在逻辑上更加清晰直观。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>ibw_jobeet:
+    resource: <span class="string">"<span class="variable">@IbwJobeetBundle</span>/Resources/config/routing.yml"</span>
+    prefix:   <span class="regexp">/</span>
+</pre></td></tr></table></figure>
+
+<blockquote>
+<p>在此要注意一个问题，就是若是有<em>type:</em>,若与resource中的文件类型不匹配，则删除此type或者进行对应的修改。</p>
+</blockquote>
+<h3 id="2-_修改Bundle下的routing-yml文件">2. 修改Bundle下的routing.yml文件</h3>
+<p>一般来说，在这里即可引入实际的Bundle访问路由地址，但也可以继续引入Bundle子目录routing文件信息。在此，则直接进行此文件实际信息配置。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/17/symfony2配置bundle路由信息/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-07-17T04:44:12.000Z"><a href="/2014/07/17/symfony2添加并更新vender库/">7月 17 2014</a></time>
       
       
@@ -243,39 +295,15 @@
 </pre></td><td class="code"><pre>composer <span class="operator"><span class="keyword">update</span></span>
 </pre></td></tr></table></figure>
 
-<h3 id="3-_在app/AppKernel-php中注册">3. 在<em>app/AppKernel.php</em>中注册</h3>
-<p>在<em>app/AppKernel.php</em>文件中注册新添加的Bundle，注册之后才能成功使用。</p>
-<figure class="highlight phpa"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre>// app/AppKernel.php
-// <span class="keyword">...</span>
-
-public <span class="keyword">function</span> registerBundles()
-{
-    $bundles = array(
-        // <span class="keyword">...</span>
-        new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle()
-    );
-
-    // <span class="keyword">...</span>
-}
-</pre></td></tr></table></figure>
-
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/07/17/symfony2添加并更新vender库/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
@@ -440,114 +468,6 @@ php composer<span class="preprocessor">.phar</span> install
 </pre></td><td class="code"><pre>php app/console assets:<span class="keyword">install</span>
 </pre></td></tr></table></figure>
 
-<p>5.生成项目bundle</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>php app/console <span class="keyword">generate</span>:bundle <span class="comment">--namespace=Ibw/JobeetBundle</span>
-</pre></td></tr></table></figure>
-
-<p>6.执行上面生成bundle命令之后需要根据提示进行简单配置：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>Bundle name [IbwJobeetBundle]: IbwJobeetBundle
-Target directory [/<span class="reserved">var</span>/www/jobeet/src]: /<span class="reserved">var</span>/www/jobeet/src
-Configuration format (yml, xml, php, <span class="keyword">or</span> annotation) [yml]: yml
-Do you want to generate the whole directory structure [<span class="literal">no</span>]? <span class="literal">yes</span>
-Do you confirm generation [<span class="literal">yes</span>]? <span class="literal">yes</span>
-Confirm automatic update <span class="keyword">of</span> your Kernel [<span class="literal">yes</span>]? <span class="literal">yes</span>
-Confirm automatic update <span class="keyword">of</span> the Routing [<span class="literal">yes</span>]? <span class="literal">yes</span>
-</pre></td></tr></table></figure>
-
-<p>7.使用Doctrine生成数据库</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>php app/console doctrine:database:<span class="operator"><span class="keyword">create</span></span>
-</pre></td></tr></table></figure>
-
-<p>8.使用Doctrien创建实体类</p>
-<p>根据创建的存放字段域的“元数据”文件，使用Doctrine生成对应的实体类</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>php <span class="operator">a</span> pp/console doctrine:generate:entities IbwJobeetBundle
-</pre></td></tr></table></figure>
-
-<p>9.使用Doctrine生成数据表</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">php</span> <span class="comment">app/console</span> <span class="comment">doctrine:schema:update</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">force</span>
-</pre></td></tr></table></figure>
-
-<p>10.使用DoctrineFixtureBundle生成数据表中具体数据</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>php app/console doctrine:fixture:<span class="built_in">load</span>
-</pre></td></tr></table></figure>
-
-<p>11.清除Symfony缓存</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>php app/console cache:<span class="built_in">clear</span> <span class="comment">--env=dev</span>
-php app/console cache:<span class="built_in">clear</span> <span class="comment">--env=prod</span>
-</pre></td></tr></table></figure>
-
-<p>12.创建一个新的控制器(Controller)，这个控制器带有CRUD动作(Action)</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">php</span> <span class="comment">app/console</span> <span class="comment">doctrine:generate:crud</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">entity=IbwJobeetBundle:Job</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">route</span><span class="literal">-</span><span class="comment">prefix=ibw_job</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">write</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">format=yml</span>
-</pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-07-16T04:20:57.000Z"><a href="/2014/07/16/github创建分支与提交代码/">7月 16 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/16/github创建分支与提交代码/">Github创建分支与提交代码</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="创建项目分支">创建项目分支</h1>
-<p>在已经存在的项目中建立分支，从而为项目贡献自己的代码或者作为一个新的项目的开始。记录下创建分支的简单步骤以及基本的提交代码到Github的命令。</p>
-<h2 id="1-_选择repository创建分支">1. 选择repository创建分支</h2>
-<p>在repository主页上点击<em>fork</em>按钮。</p>
-<p><img src="../../../../img/1406171234.jpg" alt=""></p>
-<h2 id="2-_Clone分支到本地">2. Clone分支到本地</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>git <span class="keyword">clone</span> https:<span class="comment">//github.com/username/Spoon-Knife.git</span>
-</pre></td></tr></table></figure>
-
-<h2 id="3-_配置本地库与原始库的关联">3. 配置本地库与原始库的关联</h2>
-<p>由于克隆后的本地库的只有一个与自己的GitHub上的分支关联的名为origin的远程，所以要提交自己的更新到原始库，必须配置与原始库<a href="https://github.com/octocat/Spoon-Knife的关联，名为upstream" target="_blank">https://github.com/octocat/Spoon-Knife的关联，名为upstream</a></p>
-<p>执行以下命令：  </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>cd Spoon-Knife
-git remote <span class="keyword">add</span> upstream https://github<span class="preprocessor">.com</span>/octocat/Spoon-Knife<span class="preprocessor">.git</span>	<span class="preprocessor">#添加名为upstream的原始库关联</span>
-git fetch upstream	<span class="preprocessor">#从原始库抓取更新</span>
-</pre></td></tr></table></figure>
-
 <p>
       
     </div>
@@ -555,7 +475,7 @@ git fetch upstream	<span class="preprocessor">#从原始库抓取更新</span>
       
         
           <div class="alignleft">
-            <a href="/2014/07/16/github创建分支与提交代码/#more" class="more-link">阅读全文</a>
+            <a href="/2014/07/16/symfony2基本操作命令记录/#more" class="more-link">阅读全文</a>
           </div>
         
         
@@ -586,7 +506,7 @@ git fetch upstream	<span class="preprocessor">#从原始库抓取更新</span>
   
     <li><a href="/categories/Git/">Git</a><small>1</small></li>
   
-    <li><a href="/categories/Symfony2/">Symfony2</a><small>3</small></li>
+    <li><a href="/categories/Symfony2/">Symfony2</a><small>4</small></li>
   
     <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
   

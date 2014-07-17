@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CentOS自动登录 | Hugo&#39;s blog</title>
+  <title>路由 | Hugo&#39;s blog</title>
   <meta name="author" content="Hugo Wen">
   
   <meta name="description" content="热爱开源，崇尚自由">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="CentOS自动登录"/>
+  
   <meta property="og:site_name" content="Hugo&#39;s blog"/>
 
   
@@ -198,116 +198,25 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-05-01T07:36:42.000Z"><a href="/2014/05/01/centos自动登录/">5月 1 2014</a></time>
-      
-      
-  
-    <h1 class="title">CentOS自动登录</h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>最近做的一个项目，需要去掉CentOS的登录界面直接进入系统，简单的配置即可解决。</p>
-<p><em>修改文件：</em>  </p>
-<p><code>vim /etc/gdm/custom.conf</code></p>
-<p><em>加入内容：</em> </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="title">[daemon]</span>  
-<span class="setting">AutomaticLogin=<span class="value">自动登陆的用户名  </span></span>
-<span class="setting">AutomaticLoginEnable=<span class="value"><span class="keyword">True</span></span></span>
-</pre></td></tr></table></figure>
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">路由</h2>
 
 
-      
-    </div>
-    <footer>
-      
-        
-  
-  <div class="categories">
-    <a href="/categories/linux/">linux</a>
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-07-17T09:48:28.000Z"><a href="/2014/07/17/symfony2配置bundle路由信息/">7月 17 2014</a></time>
+            
+              <h1 class="title"><a href="/2014/07/17/symfony2配置bundle路由信息/">Symfony2配置Bundle路由信息</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
   </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/centos/">centos</a>, <a href="/tags/自动登录/">自动登录</a>
-  </div>
-
-        <!-- 
-  <div class="addthis addthis_toolbox addthis_default_style">
-    
-      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-    
-    
-      <a class="addthis_button_tweet"></a>
-    
-    
-      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    
-    
-      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-    
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
- -->
-        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <!--<h1 class="title">留言</h1>
-
-  
-      <div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<div class="fb-comments" data-href="http://hugowen.com/2014/05/01/centos自动登录/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
-      
-   -->
-  <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/2014/05/01/centos自动登录/" data-title="CentOS自动登录" data-url="http://hugowen.com/2014/05/01/centos自动登录/"></div>
-  <!-- <div class="ds-thread" data-thread-key="/2014/05/01/centos自动登录/" data-title="CentOS自动登录" data-url="hugowen.com"></div> -->
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"hugowen"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
-
-</section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script>

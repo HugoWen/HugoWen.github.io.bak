@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CentOS自动登录 | Hugo&#39;s blog</title>
+  <title>Symfony2配置Bundle路由信息 | Hugo&#39;s blog</title>
   <meta name="author" content="Hugo Wen">
   
   <meta name="description" content="热爱开源，崇尚自由">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="CentOS自动登录"/>
+  <meta property="og:title" content="Symfony2配置Bundle路由信息"/>
   <meta property="og:site_name" content="Hugo&#39;s blog"/>
 
   
@@ -204,26 +204,93 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-05-01T07:36:42.000Z"><a href="/2014/05/01/centos自动登录/">5月 1 2014</a></time>
+        <time datetime="2014-07-17T09:48:28.000Z"><a href="/2014/07/17/symfony2配置bundle路由信息/">7月 17 2014</a></time>
       
       
   
-    <h1 class="title">CentOS自动登录</h1>
+    <h1 class="title">Symfony2配置Bundle路由信息</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>最近做的一个项目，需要去掉CentOS的登录界面直接进入系统，简单的配置即可解决。</p>
-<p><em>修改文件：</em>  </p>
-<p><code>vim /etc/gdm/custom.conf</code></p>
-<p><em>加入内容：</em> </p>
+        <p>Symfony2有一套很规范的路由配置方式。在创建新的<strong>Bundle</strong>的时候，通过从Symfony主配置文件一步步地引用来实现路由到当前Bundle的路径信息。</p>
+<p>下面记录下进行路由信息的简单配置。</p>
+<h3 id="1-_修改/app/config/routing-yml文件">1. 修改<em>/app/config/routing.yml</em>文件</h3>
+<p>这是整个系统的主路由信息配置文件，修改<strong>resouce</strong>信息，引入到Bundle下的<strong>routing.yml</strong>文件并在Bundle下的routing文件进行配置，这样在逻辑上更加清晰直观。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="title">[daemon]</span>  
-<span class="setting">AutomaticLogin=<span class="value">自动登陆的用户名  </span></span>
-<span class="setting">AutomaticLoginEnable=<span class="value"><span class="keyword">True</span></span></span>
+</pre></td><td class="code"><pre>ibw_jobeet:
+    resource: <span class="string">"<span class="variable">@IbwJobeetBundle</span>/Resources/config/routing.yml"</span>
+    prefix:   <span class="regexp">/</span>
+</pre></td></tr></table></figure>
+
+<blockquote>
+<p>在此要注意一个问题，就是若是有<em>type:</em>,若与resource中的文件类型不匹配，则删除此type或者进行对应的修改。</p>
+</blockquote>
+<h3 id="2-_修改Bundle下的routing-yml文件">2. 修改Bundle下的routing.yml文件</h3>
+<p>一般来说，在这里即可引入实际的Bundle访问路由地址，但也可以继续引入Bundle子目录routing文件信息。在此，则直接进行此文件实际信息配置。<br><a id="more"></a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre>job:
+    path:     /
+    defaults: { <span class="title">_controller</span>: <span class="string">"IbwJobeetBundle:Job:index"</span> }
+
+job_show:
+    path:     /{id}/show
+    defaults: { <span class="title">_controller</span>: <span class="string">"IbwJobeetBundle:Job:show"</span> }
+
+job_new:
+    path:     /<span class="built_in">new</span>
+    defaults: { <span class="title">_controller</span>: <span class="string">"IbwJobeetBundle:Job:new"</span> }
+
+job_create:
+    path:     /<span class="built_in">create</span>
+    defaults: { <span class="title">_controller</span>: <span class="string">"IbwJobeetBundle:Job:create"</span> }
+    requirements: { <span class="title">_method</span>: <span class="built_in">post</span> }
+
+job_edit:
+    path:     /{id}/edit
+    defaults: { <span class="title">_controller</span>: <span class="string">"IbwJobeetBundle:Job:edit"</span> }
+
+job_update:
+    path:     /{id}/update
+    defaults: { <span class="title">_controller</span>: <span class="string">"IbwJobeetBundle:Job:update"</span> }
+    requirements: { <span class="title">_method</span>: <span class="built_in">post</span>|<span class="built_in">put</span> }
+
+job_delete:
+    path:     /{id}/<span class="built_in">delete</span>
+    defaults: { <span class="title">_controller</span>: <span class="string">"IbwJobeetBundle:Job:delete"</span> }
+    requirements: { <span class="title">_method</span>: <span class="built_in">post</span>|<span class="built_in">delete</span> }
 </pre></td></tr></table></figure>
 
 
@@ -234,13 +301,13 @@
         
   
   <div class="categories">
-    <a href="/categories/linux/">linux</a>
+    <a href="/categories/Symfony2/">Symfony2</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/centos/">centos</a>, <a href="/tags/自动登录/">自动登录</a>
+    <a href="/tags/Symfony2/">Symfony2</a>, <a href="/tags/bundle/">bundle</a>, <a href="/tags/路由/">路由</a>
   </div>
 
         <!-- 
@@ -285,12 +352,12 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://hugowen.com/2014/05/01/centos自动登录/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://hugowen.com/2014/07/17/symfony2配置bundle路由信息/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
    -->
   <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/2014/05/01/centos自动登录/" data-title="CentOS自动登录" data-url="http://hugowen.com/2014/05/01/centos自动登录/"></div>
-  <!-- <div class="ds-thread" data-thread-key="/2014/05/01/centos自动登录/" data-title="CentOS自动登录" data-url="hugowen.com"></div> -->
+	<div class="ds-thread" data-thread-key="/2014/07/17/symfony2配置bundle路由信息/" data-title="Symfony2配置Bundle路由信息" data-url="http://hugowen.com/2014/07/17/symfony2配置bundle路由信息/"></div>
+  <!-- <div class="ds-thread" data-thread-key="/2014/07/17/symfony2配置bundle路由信息/" data-title="Symfony2配置Bundle路由信息" data-url="hugowen.com"></div> -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
