@@ -228,17 +228,22 @@ php composer<span class="preprocessor">.phar</span> install
 </pre></td><td class="code"><pre>composer <span class="keyword">install</span>
 </pre></td></tr></table></figure>
 
-<p>3.配置css、javascript等静态文件</p>
+<p>3.更新vender库</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>composer <span class="operator"><span class="keyword">update</span></span>
+</pre></td></tr></table></figure>
+
+<p>4.配置css、javascript等静态文件</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>php app/console assets:<span class="keyword">install</span>
 </pre></td></tr></table></figure>
 
-<p>4.生成项目bundle</p>
+<p>5.生成项目bundle</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>php app/console <span class="keyword">generate</span>:bundle <span class="comment">--namespace=Ibw/JobeetBundle</span>
 </pre></td></tr></table></figure>
 
-<p>执行上面生成bundle命令之后需要根据提示进行简单配置：</p>
+<p>6.执行上面生成bundle命令之后需要根据提示进行简单配置：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -255,7 +260,39 @@ Confirm automatic update <span class="keyword">of</span> your Kernel [<span clas
 Confirm automatic update <span class="keyword">of</span> the Routing [<span class="literal">yes</span>]? <span class="literal">yes</span>
 </pre></td></tr></table></figure>
 
-<p>（未完待续）</p>
+<p>7.使用Doctrine生成数据库</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>php app/console doctrine:database:<span class="operator"><span class="keyword">create</span></span>
+</pre></td></tr></table></figure>
+
+<p>8.使用Doctrien创建实体类</p>
+<p>根据创建的存放字段域的“元数据”文件，使用Doctrine生成对应的实体类</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>php <span class="operator">a</span> pp/console doctrine:generate:entities IbwJobeetBundle
+</pre></td></tr></table></figure>
+
+<p>9.使用Doctrine生成数据表</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">php</span> <span class="comment">app/console</span> <span class="comment">doctrine:schema:update</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">force</span>
+</pre></td></tr></table></figure>
+
+<p>10.使用DoctrineFixtureBundle生成数据表中具体数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>php app/console doctrine:fixture:<span class="built_in">load</span>
+</pre></td></tr></table></figure>
+
+<p>11.清除Symfony缓存</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>php app/console cache:<span class="built_in">clear</span> <span class="comment">--env=dev</span>
+php app/console cache:<span class="built_in">clear</span> <span class="comment">--env=prod</span>
+</pre></td></tr></table></figure>
+
+<p>12.创建一个新的控制器(Controller)，这个控制器带有CRUD动作(Action)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">php</span> <span class="comment">app/console</span> <span class="comment">doctrine:generate:crud</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">entity=IbwJobeetBundle:Job</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">route</span><span class="literal">-</span><span class="comment">prefix=ibw_job</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">write</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">format=yml</span>
+</pre></td></tr></table></figure>
+
 
       
     </div>
@@ -349,7 +386,7 @@ var duoshuoQuery = {short_name:"hugowen"};
   
     <li><a href="/categories/Git/">Git</a><small>1</small></li>
   
-    <li><a href="/categories/Symfony2/">Symfony2</a><small>1</small></li>
+    <li><a href="/categories/Symfony2/">Symfony2</a><small>3</small></li>
   
     <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
   

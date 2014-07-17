@@ -205,6 +205,133 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-07-17T04:44:12.000Z"><a href="/2014/07/17/symfony2添加并更新vender库/">7月 17 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/17/symfony2添加并更新vender库/">Symfony2添加并更新vender库</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在Symfony2中有一种简单的方法添加和更新vender库。</p>
+<h3 id="1-_修改composer-json文件">1. 修改<em>composer.json</em>文件</h3>
+<p>添加代码到<em>composer.json</em>文件的<em>require</em>区块中，以在更新vender库时成功识别要添加的Bundle，这里以添加<em>DoctrineFixturesBundle</em>为例。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>// composer.json
+// <span class="keyword">...</span>
+    <span class="string">"require"</span>: {
+        // <span class="keyword">...</span>
+        <span class="string">"doctrine/doctrine-fixtures-bundle"</span>: <span class="string">"dev-master"</span>,
+        <span class="string">"doctrine/data-fixtures"</span>: <span class="string">"dev-master"</span>
+    },
+
+// <span class="keyword">...</span>
+</pre></td></tr></table></figure>
+
+<h3 id="2-_更新vender库">2. 更新vender库</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>composer <span class="operator"><span class="keyword">update</span></span>
+</pre></td></tr></table></figure>
+
+<h3 id="3-_在app/AppKernel-php中注册">3. 在<em>app/AppKernel.php</em>中注册</h3>
+<p>在<em>app/AppKernel.php</em>文件中注册新添加的Bundle，注册之后才能成功使用。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre>// app/AppKernel.php
+// <span class="keyword">...</span>
+
+public <span class="keyword">function</span> registerBundles()
+{
+    $bundles = array(
+        // <span class="keyword">...</span>
+        new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle()
+    );
+
+    // <span class="keyword">...</span>
+}
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-07-17T03:18:41.000Z"><a href="/2014/07/17/symfony2获取当前文件位置/">7月 17 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/17/symfony2获取当前文件位置/">Symfony2获取当前文件位置</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>由于Symfony2文件结构比较复杂，对于初学者来说对文件位置的获取若是直接写出绝对路径或相对路径比较麻烦且容易出错，但方便的是，Symfony提供了一个<em>path()</em>函数，便可以直接获得当前文件的位置。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>
+
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-07-16T15:22:21.000Z"><a href="/2014/07/16/php判断常量值、变量值、函数是否存在/">7月 16 2014</a></time>
       
       
@@ -303,17 +430,22 @@ php composer<span class="preprocessor">.phar</span> install
 </pre></td><td class="code"><pre>composer <span class="keyword">install</span>
 </pre></td></tr></table></figure>
 
-<p>3.配置css、javascript等静态文件</p>
+<p>3.更新vender库</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>composer <span class="operator"><span class="keyword">update</span></span>
+</pre></td></tr></table></figure>
+
+<p>4.配置css、javascript等静态文件</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>php app/console assets:<span class="keyword">install</span>
 </pre></td></tr></table></figure>
 
-<p>4.生成项目bundle</p>
+<p>5.生成项目bundle</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>php app/console <span class="keyword">generate</span>:bundle <span class="comment">--namespace=Ibw/JobeetBundle</span>
 </pre></td></tr></table></figure>
 
-<p>执行上面生成bundle命令之后需要根据提示进行简单配置：</p>
+<p>6.执行上面生成bundle命令之后需要根据提示进行简单配置：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -330,7 +462,39 @@ Confirm automatic update <span class="keyword">of</span> your Kernel [<span clas
 Confirm automatic update <span class="keyword">of</span> the Routing [<span class="literal">yes</span>]? <span class="literal">yes</span>
 </pre></td></tr></table></figure>
 
-<p>（未完待续）</p>
+<p>7.使用Doctrine生成数据库</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>php app/console doctrine:database:<span class="operator"><span class="keyword">create</span></span>
+</pre></td></tr></table></figure>
+
+<p>8.使用Doctrien创建实体类</p>
+<p>根据创建的存放字段域的“元数据”文件，使用Doctrine生成对应的实体类</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>php <span class="operator">a</span> pp/console doctrine:generate:entities IbwJobeetBundle
+</pre></td></tr></table></figure>
+
+<p>9.使用Doctrine生成数据表</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">php</span> <span class="comment">app/console</span> <span class="comment">doctrine:schema:update</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">force</span>
+</pre></td></tr></table></figure>
+
+<p>10.使用DoctrineFixtureBundle生成数据表中具体数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>php app/console doctrine:fixture:<span class="built_in">load</span>
+</pre></td></tr></table></figure>
+
+<p>11.清除Symfony缓存</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>php app/console cache:<span class="built_in">clear</span> <span class="comment">--env=dev</span>
+php app/console cache:<span class="built_in">clear</span> <span class="comment">--env=prod</span>
+</pre></td></tr></table></figure>
+
+<p>12.创建一个新的控制器(Controller)，这个控制器带有CRUD动作(Action)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">php</span> <span class="comment">app/console</span> <span class="comment">doctrine:generate:crud</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">entity=IbwJobeetBundle:Job</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">route</span><span class="literal">-</span><span class="comment">prefix=ibw_job</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">write</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">format=yml</span>
+</pre></td></tr></table></figure>
+
 
       
     </div>
@@ -404,105 +568,6 @@ git fetch upstream	<span class="preprocessor">#从原始库抓取更新</span>
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-07-11T07:09:21.000Z"><a href="/2014/07/11/centos服务器使用lnmp安装包搭建环境/">7月 11 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/11/centos服务器使用lnmp安装包搭建环境/">CentOS服务器使用LNMP安装包搭建环境</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>之前做过手动配置LNMP环境，感觉十分复杂麻烦，在这里使用LNMP安装包来进行环境搭建。</p>
-<h2 id="1-执行screen命令">1.执行screen命令</h2>
-<p>执行screen命令的目的是当使用远程工具操作服务器时，很可能会出现网络断线的情况，这样就会造成lnmp安装中断，有可能前功尽弃。为了防止这种现象，在安装lnmp前，先执行screen命令来进行解决。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>yum <span class="keyword">install</span> screen
-screen -S lnmp
-</pre></td></tr></table></figure>
-
-<h2 id="2-下载并安装LNMP安装包">2.下载并安装LNMP安装包</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>wget -c http://soft<span class="preprocessor">.vpser</span><span class="preprocessor">.net</span>/lnmp/lnmp1<span class="number">.1</span>-full<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> && tar zxf lnmp1<span class="number">.1</span>-full<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> && cd lnmp1<span class="number">.1</span>-full && ./centos<span class="preprocessor">.sh</span>
-</pre></td></tr></table></figure>
-
-<p>中途需要一些基本设置账户，按照操作一步步来就可成功安装。安装成功后基本的配置都已经搞定，十分方便，省时省力！</p>
-<hr>
-<p><em>参考文章：</em><br><a href="http://lnmp.org/install.html" target="_blank">http://lnmp.org/install.html</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-07-09T23:49:29.000Z"><a href="/2014/07/10/windows下redis的安装和在php下的扩展使用/">7月 10 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/10/windows下redis的安装和在php下的扩展使用/">Windows下Redis的安装和在php下的扩展使用</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="Windows下Redis的安装和开启服务">Windows下Redis的安装和开启服务</h2>
-<p>下载并安装Redis对应的Windows版本，下载地址：<a href="https://github.com/mythz/redis-windows" target="_blank">https://github.com/mythz/redis-windows</a></p>
-<p>根据系统选择需要的文件并解压，启动redis服务。<br>进入redis目录，开启服务</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>redis-server<span class="preprocessor">.exe</span> redis<span class="preprocessor">.conf</span>
-</pre></td></tr></table></figure>
-
-<p>在需要redis服务时，此命令窗口要保持开启，关闭时redis服务也会随之关闭。</p>
-<p>开启另一个命令行窗口，进入redis目录</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>redis<span class="attribute">-cli</span><span class="built_in">.</span>exe <span class="attribute">-h</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.105</span>(自己的ip地址) <span class="attribute">-p</span> <span class="number">6379</span>
-</pre></td></tr></table></figure>
-
-<h2 id="php下配置Redis扩展使用">php下配置Redis扩展使用</h2>
-<p>下载安装php_redis.dll和php_igbinary.dll文件。<br>下面是对应php5.5的下载链接，根据自己的环境进行选择下载：<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/07/10/windows下redis的安装和在php下的扩展使用/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -521,7 +586,7 @@ screen -S lnmp
   
     <li><a href="/categories/Git/">Git</a><small>1</small></li>
   
-    <li><a href="/categories/Symfony2/">Symfony2</a><small>1</small></li>
+    <li><a href="/categories/Symfony2/">Symfony2</a><small>3</small></li>
   
     <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
   

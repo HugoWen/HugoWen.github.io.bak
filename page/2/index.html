@@ -205,6 +205,105 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-07-11T07:09:21.000Z"><a href="/2014/07/11/centos服务器使用lnmp安装包搭建环境/">7月 11 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/11/centos服务器使用lnmp安装包搭建环境/">CentOS服务器使用LNMP安装包搭建环境</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前做过手动配置LNMP环境，感觉十分复杂麻烦，在这里使用LNMP安装包来进行环境搭建。</p>
+<h2 id="1-执行screen命令">1.执行screen命令</h2>
+<p>执行screen命令的目的是当使用远程工具操作服务器时，很可能会出现网络断线的情况，这样就会造成lnmp安装中断，有可能前功尽弃。为了防止这种现象，在安装lnmp前，先执行screen命令来进行解决。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>yum <span class="keyword">install</span> screen
+screen -S lnmp
+</pre></td></tr></table></figure>
+
+<h2 id="2-下载并安装LNMP安装包">2.下载并安装LNMP安装包</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>wget -c http://soft<span class="preprocessor">.vpser</span><span class="preprocessor">.net</span>/lnmp/lnmp1<span class="number">.1</span>-full<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> && tar zxf lnmp1<span class="number">.1</span>-full<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> && cd lnmp1<span class="number">.1</span>-full && ./centos<span class="preprocessor">.sh</span>
+</pre></td></tr></table></figure>
+
+<p>中途需要一些基本设置账户，按照操作一步步来就可成功安装。安装成功后基本的配置都已经搞定，十分方便，省时省力！</p>
+<hr>
+<p><em>参考文章：</em><br><a href="http://lnmp.org/install.html" target="_blank">http://lnmp.org/install.html</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-07-09T23:49:29.000Z"><a href="/2014/07/10/windows下redis的安装和在php下的扩展使用/">7月 10 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/10/windows下redis的安装和在php下的扩展使用/">Windows下Redis的安装和在php下的扩展使用</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="Windows下Redis的安装和开启服务">Windows下Redis的安装和开启服务</h2>
+<p>下载并安装Redis对应的Windows版本，下载地址：<a href="https://github.com/mythz/redis-windows" target="_blank">https://github.com/mythz/redis-windows</a></p>
+<p>根据系统选择需要的文件并解压，启动redis服务。<br>进入redis目录，开启服务</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>redis-server<span class="preprocessor">.exe</span> redis<span class="preprocessor">.conf</span>
+</pre></td></tr></table></figure>
+
+<p>在需要redis服务时，此命令窗口要保持开启，关闭时redis服务也会随之关闭。</p>
+<p>开启另一个命令行窗口，进入redis目录</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>redis<span class="attribute">-cli</span><span class="built_in">.</span>exe <span class="attribute">-h</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.105</span>(自己的ip地址) <span class="attribute">-p</span> <span class="number">6379</span>
+</pre></td></tr></table></figure>
+
+<h2 id="php下配置Redis扩展使用">php下配置Redis扩展使用</h2>
+<p>下载安装php_redis.dll和php_igbinary.dll文件。<br>下面是对应php5.5的下载链接，根据自己的环境进行选择下载：<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/10/windows下redis的安装和在php下的扩展使用/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-07-09T23:48:39.000Z"><a href="/2014/07/10/nginx配置多域名/">7月 10 2014</a></time>
       
       
@@ -348,109 +447,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-07-09T14:03:47.000Z"><a href="/2014/07/09/centos服务器搭建lnmp环境/">7月 9 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/09/centos服务器搭建lnmp环境/">CentOS服务器搭建LNMP环境</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>记录CentOS服务器搭建LNMP(linux+nginx+mysql+php)的步骤。</p>
-<h2 id="1-配置防火墙">1.配置防火墙</h2>
-<p>开启80端口、3306端口</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>vim /etc/sysconfig/iptables
-</pre></td></tr></table></figure>
-
-<p>在默认的22端口规则下添加：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>-A INPUT -<span class="keyword">m</span> <span class="keyword">state</span> --<span class="keyword">state</span> NEW -<span class="keyword">m</span> tcp -p tcp --dport <span class="number">80</span> -j ACCEPT <span class="comment">#允许80端口通过防火墙</span>
--A INPUT -<span class="keyword">m</span> <span class="keyword">state</span> --<span class="keyword">state</span> NEW -<span class="keyword">m</span> tcp -p tcp --dport <span class="number">3306</span> -j ACCEPT <span class="comment">#允许3306端口通过防火墙</span>
-</pre></td></tr></table></figure>
-
-<p>重启防火墙</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>/etc/init<span class="preprocessor">.d</span>/iptables restart
-</pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/07/09/centos服务器搭建lnmp环境/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-05-17T03:24:56.000Z"><a href="/2014/05/17/hexo使用markdown插入本地图片/">5月 17 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/05/17/hexo使用markdown插入本地图片/">hexo使用markdown插入本地图片</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>由于没有寻觅到比较靠谱的图床，所以准备通过上传图片到GitHub上我的hexo项目里，再使用本地路径来调用的方法感觉应该可以。稍微麻烦的是本地图片路径的写法问题。</p>
-<p>首先，在hexo目录下的<strong>source</strong>文件夹下建立一个img文件夹，用来保存博客里要用到的图片。比如我上传了一张名为<em>2.jpg</em>的图片。</p>
-<p>然后，在博客里使用这张图片，markdown格式与使用网络图片的格式相同：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>![<span class="link_label">说明文字(可选)</span>](<span class="link_url">图片链接</span>)
-</pre></td></tr></table></figure>
-
-<p>在这里，图片链接写入本地路径，就是在这里出现了一些小问题。<br>最开始我写的是：<br><del>../img/2.jpg</del></p>
-<p>但是在上传到博客中却发现没法打开，在博客中的图片地址写成了：  </p>
-<blockquote>
-<p>hugowen.com/2014/05/03/img/2.jpg</p>
-</blockquote>
-<p>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/05/17/hexo使用markdown插入本地图片/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -471,7 +467,7 @@
   
     <li><a href="/categories/Git/">Git</a><small>1</small></li>
   
-    <li><a href="/categories/Symfony2/">Symfony2</a><small>1</small></li>
+    <li><a href="/categories/Symfony2/">Symfony2</a><small>3</small></li>
   
     <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
   
