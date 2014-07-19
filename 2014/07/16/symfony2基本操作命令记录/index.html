@@ -266,9 +266,9 @@ Confirm automatic update <span class="keyword">of</span> the Routing [<span clas
 </pre></td></tr></table></figure>
 
 <p>8.使用Doctrien创建实体类</p>
-<p>根据创建的存放字段域的“元数据”文件，使用Doctrine生成对应的实体类</p>
+<p>根据创建的存放字段域的“元数据”文件，使用Doctrine生成对应的实体类和对应的Repository类</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>php <span class="operator">a</span> pp/console doctrine:generate:entities IbwJobeetBundle
+</pre></td><td class="code"><pre>php app/console doctrine:<span class="keyword">generate</span>:entities IbwJobeetBundle
 </pre></td></tr></table></figure>
 
 <p>9.使用Doctrine生成数据表</p>
@@ -291,6 +291,19 @@ php app/console cache:<span class="built_in">clear</span> <span class="comment">
 <p>12.创建一个新的控制器(Controller)，这个控制器带有CRUD动作(Action)</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="comment">php</span> <span class="comment">app/console</span> <span class="comment">doctrine:generate:crud</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">entity=IbwJobeetBundle:Job</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">route</span><span class="literal">-</span><span class="comment">prefix=ibw_job</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">write</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">format=yml</span>
+</pre></td></tr></table></figure>
+
+<p>13.查看所有route路由信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="comment">//查看所有路由配置</span>
+php app/console router:<span class="keyword">debug</span>
+
+<span class="comment">//查看指定一个路由配置</span>
+php app/console router:<span class="keyword">debug</span> job_show
 </pre></td></tr></table></figure>
 
 
@@ -391,6 +404,8 @@ var duoshuoQuery = {short_name:"hugowen"};
     <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
   
     <li><a href="/categories/linux/">linux</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
   
     <li><a href="/categories/php/">php</a><small>4</small></li>
   
